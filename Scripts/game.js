@@ -69,8 +69,8 @@ var Game = (function () {
     var backgroundData = {
         images: {},
         frames: [
-            [0, 0, 1024, 576, 0, 0, 0],
-            [0, 0, 1600, 576, 1, 0, 0]
+            [0, 0, 1024, 576, 0],
+            [0, 0, 1600, 576, 1]
         ],
         animations: {
             menu: 0,

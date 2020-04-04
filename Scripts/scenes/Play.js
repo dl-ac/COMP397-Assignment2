@@ -16,6 +16,12 @@ var scenes;
 (function (scenes) {
     var Play = /** @class */ (function (_super) {
         __extends(Play, _super);
+        // private _plane?: objects.Plane;
+        // private _island?: objects.Island;
+        // private _clouds: Array<objects.Cloud>;
+        // private _scoreBoard: managers.ScoreBoard;
+        // private _bulletManager: managers.Bullet;
+        // private _keyboardManager: managers.Keyboard;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Play() {
@@ -27,49 +33,47 @@ var scenes;
         // PUBLIC METHODS
         //initialize and instatiate
         Play.prototype.Start = function () {
-            this._ocean = new objects.Ocean();
-            this._plane = new objects.Plane();
-            this._island = new objects.Island();
-            // create the cloud array
-            this._clouds = new Array(); // empty container
-            // instantiating CLOUD_NUM clouds
-            for (var index = 0; index < config.Game.CLOUD_NUM; index++) {
-                this._clouds.push(new objects.Cloud());
-            }
-            this._scoreBoard = new managers.ScoreBoard();
-            config.Game.SCORE_BOARD = this._scoreBoard;
-            this._bulletManager = new managers.Bullet();
-            config.Game.BULLET_MANAGER = this._bulletManager;
-            this._keyboardManager = new managers.Keyboard();
-            config.Game.KEYBOARD_MANAGER = this._keyboardManager;
+            this._background = new objects.Background(false);
+            // this._plane = new objects.Plane();
+            // this._island = new objects.Island();
+            // // create the cloud array
+            // this._clouds = new Array<objects.Cloud>(); // empty container
+            // // instantiating CLOUD_NUM clouds
+            // for (let index = 0; index < config.Game.CLOUD_NUM; index++) {
+            //     this._clouds.push(new objects.Cloud());
+            // }
+            // this._scoreBoard = new managers.ScoreBoard();
+            // config.Game.SCORE_BOARD = this._scoreBoard;
+            // this._bulletManager = new managers.Bullet();
+            // config.Game.BULLET_MANAGER = this._bulletManager;
+            // this._keyboardManager = new managers.Keyboard();
+            // config.Game.KEYBOARD_MANAGER = this._keyboardManager;
             this.Main();
         };
         Play.prototype.Update = function () {
-            var _this = this;
-            this._ocean.Update();
-            this._plane.Update();
-            this._bulletManager.Update();
-            this._island.Update();
-            managers.Collision.AABBCheck(this._plane, this._island);
-            this._clouds.forEach(function (cloud) {
-                cloud.Update();
-                managers.Collision.squaredRadiusCheck(_this._plane, cloud);
-            });
+            this._background.Update();
+            // this._plane.Update();
+            // this._bulletManager.Update();
+            // this._island.Update();
+            // managers.Collision.AABBCheck(this._plane, this._island);
+            // this._clouds.forEach(cloud => {
+            //     cloud.Update();
+            //     managers.Collision.squaredRadiusCheck(this._plane, cloud);
+            // });
         };
         Play.prototype.Main = function () {
-            this.addChild(this._ocean);
-            this.addChild(this._island);
-            this.addChild(this._plane);
-            this._bulletManager.AddBulletsToScene(this);
-            for (var _i = 0, _a = this._clouds; _i < _a.length; _i++) {
-                var cloud = _a[_i];
-                this.addChild(cloud);
-            }
-            this.addChild(this._scoreBoard.LivesLabel);
-            this.addChild(this._scoreBoard.ScoreLabel);
+            this.addChild(this._background);
+            // this.addChild(this._island);
+            // this.addChild(this._plane);
+            // this._bulletManager.AddBulletsToScene(this);
+            // for (const cloud of this._clouds) {
+            //     this.addChild(cloud);
+            // }
+            // this.addChild(this._scoreBoard.LivesLabel);
+            // this.addChild(this._scoreBoard.ScoreLabel);
         };
         Play.prototype.Clean = function () {
-            this._plane.engineSound.stop();
+            // this._plane.engineSound.stop();
             this.removeAllChildren();
         };
         return Play;

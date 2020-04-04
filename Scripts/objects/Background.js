@@ -18,24 +18,26 @@ var objects;
         __extends(Background, _super);
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
-        function Background(backgroundName, verticalSpeed, loop) {
-            if (verticalSpeed === void 0) { verticalSpeed = 0; }
-            if (loop === void 0) { loop = false; }
-            var _this = _super.call(this, config.Game.BACKGROUND_ATLAS, backgroundName) || this;
-            _this._verticalSpeed = verticalSpeed;
-            _this._loop = loop;
+        function Background(isMenu) {
+            var _this = _super.call(this, config.Game.BACKGROUND_ATLAS, isMenu ? "menu" : "play") || this;
+            if (isMenu) {
+                _this.velocity = objects.Vector2.zero();
+            }
+            else {
+                _this.velocity = new objects.Vector2(-0.05, 0);
+            }
+            _this.position = objects.Vector2.zero();
             _this.Start();
             return _this;
         }
         // PRIVATE METHODS
         Background.prototype._checkBounds = function () {
-            if (this.y >= 0) {
+            if (this.x <= -(this.width - config.Game.SCREEN_WIDTH)) {
                 if (this._loop) {
                     this.Reset();
                 }
                 else {
-                    this._verticalSpeed = 0;
-                    this.velocity = new objects.Vector2(0, 0);
+                    this.velocity = objects.Vector2.zero();
                 }
             }
         };
@@ -45,18 +47,15 @@ var objects;
         // PUBLIC METHODS
         Background.prototype.Start = function () {
             this.type = enums.GameObjectType.BACKGROUND;
-            this.velocity = new objects.Vector2(0, this._verticalSpeed);
             this.Reset();
         };
         Background.prototype.Update = function () {
-            if (this._verticalSpeed > 0) {
+            if (this.velocity.x != 0 || this.velocity.y != 0) {
                 this._move();
                 this._checkBounds();
             }
         };
-        Background.prototype.Reset = function () {
-            this.position = new objects.Vector2(0, 0);
-        };
+        Background.prototype.Reset = function () { };
         return Background;
     }(objects.GameObject));
     objects.Background = Background;

@@ -54,7 +54,7 @@ module scenes {
             this._menuButton = new objects.Button("buttonMenu", 512, 536, true);
 
             // Background
-            this._background = new objects.Background("menu");
+            this._background = new objects.Background(true);
             this.Main();
         }
 

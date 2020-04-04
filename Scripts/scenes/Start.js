@@ -34,7 +34,7 @@ var scenes;
             this._exitButton = new objects.Button("buttonExit", 716.5, 340, true);
             this._infoButton = new objects.Button("buttonInfo", 512, 480, true);
             // Background
-            this._background = new objects.Background("menu");
+            this._background = new objects.Background(true);
             this.Main();
         };
         Start.prototype.Update = function () {

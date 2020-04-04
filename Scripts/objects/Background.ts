@@ -1,17 +1,21 @@
 module objects {
     export class Background extends GameObject {
         // PRIVATE INSTANCE MEMBERS
-        private _verticalSpeed?: number;
+        private _startPosition: Vector2;
         private _loop: boolean;
 
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
-        constructor(backgroundName: string, verticalSpeed: number = 0, loop: boolean = false) {
-            super(config.Game.BACKGROUND_ATLAS, backgroundName);
+        constructor(isMenu: boolean) {
+            super(config.Game.BACKGROUND_ATLAS, isMenu ? "menu" : "play");
 
-            this._verticalSpeed = verticalSpeed;
-            this._loop = loop;
+            if (isMenu) {
+                this.velocity = Vector2.zero();
+            } else {
+                this.velocity = new Vector2(-0.05, 0);
+            }
+            this.position = Vector2.zero();
 
             this.Start();
         }
@@ -19,12 +23,11 @@ module objects {
         // PRIVATE METHODS
 
         protected _checkBounds(): void {
-            if (this.y >= 0) {
+            if (this.x <= -(this.width - config.Game.SCREEN_WIDTH)) {
                 if (this._loop) {
                     this.Reset();
                 } else {
-                    this._verticalSpeed = 0;
-                    this.velocity = new Vector2(0, 0);
+                    this.velocity = Vector2.zero();
                 }
             }
         }
@@ -36,19 +39,16 @@ module objects {
         // PUBLIC METHODS
         public Start(): void {
             this.type = enums.GameObjectType.BACKGROUND;
-            this.velocity = new Vector2(0, this._verticalSpeed);
             this.Reset();
         }
 
         public Update(): void {
-            if (this._verticalSpeed > 0) {
+            if (this.velocity.x != 0 || this.velocity.y != 0) {
                 this._move();
                 this._checkBounds();
             }
         }
 
-        public Reset(): void {
-            this.position = new Vector2(0, 0);
-        }
+        public Reset(): void {}
     }
 }
