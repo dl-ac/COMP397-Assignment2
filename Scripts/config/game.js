@@ -11,6 +11,7 @@ var config;
         Game.LIVES = 5;
         Game.SCORE = 0;
         Game.HIGH_SCORE = 0;
+        Game.TEXT_COLOR = "#e3f5f4";
         return Game;
     }());
     config.Game = Game;

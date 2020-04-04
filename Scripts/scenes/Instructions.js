@@ -27,7 +27,7 @@ var scenes;
         // PUBLIC METHODS
         Instructions.prototype.Start = function () {
             //instantiate a new Text object
-            this._windowTitle = new objects.Label("Instructions", "36px", "EthnocentricReg", "#FFFFFF", 328, 10, false);
+            this._windowTitle = new objects.Label("Instructions", "36px", "EthnocentricReg", config.Game.TEXT_COLOR, 328, 10, false);
             // buttons
             this._menuButton = new objects.Button("buttonMenu", 512, 536, true);
             // Background

@@ -14,5 +14,6 @@ module config {
         public static KEYBOARD_MANAGER: managers.Keyboard;
         public static TEXTURE_ATLAS: createjs.SpriteSheet;
         public static BACKGROUND_ATLAS: createjs.SpriteSheet;
+        public static TEXT_COLOR: string = "#e3f5f4";
     }
 }

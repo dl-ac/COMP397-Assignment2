@@ -27,9 +27,9 @@ var scenes;
         // PUBLIC METHODS
         ExitGame.prototype.Start = function () {
             //instantiate a new Text object
-            this._gameTitleOne = new objects.Label("Universe", "80px", "EthnocentricReg", "#FFFFFF", 230, 100, false);
-            this._gameTitleTwo = new objects.Label("and machines", "53px", "EthnocentricReg", "#FFFFFF", 230, 180, false);
-            this._thanks = new objects.Label("Thank you for playing!", "36px", "EthnocentricReg", "#FFFFFF", 186, 340, false);
+            this._gameTitleOne = new objects.Label("Universe", "80px", "EthnocentricReg", config.Game.TEXT_COLOR, 230, 100, false);
+            this._gameTitleTwo = new objects.Label("and machines", "53px", "EthnocentricReg", config.Game.TEXT_COLOR, 230, 180, false);
+            this._thanks = new objects.Label("Thank you for playing!", "36px", "EthnocentricReg", config.Game.TEXT_COLOR, 186, 340, false);
             // buttons
             this._menuButton = new objects.Button("buttonMenu", 512, 536, true);
             // Background

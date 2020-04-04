@@ -21,12 +21,20 @@ module scenes {
         // PUBLIC METHODS
         public Start(): void {
             //instantiate a new Text object
-            this._gameTitleOne = new objects.Label("Universe", "80px", "EthnocentricReg", "#FFFFFF", 230, 100, false);
+            this._gameTitleOne = new objects.Label(
+                "Universe",
+                "80px",
+                "EthnocentricReg",
+                config.Game.TEXT_COLOR,
+                230,
+                100,
+                false
+            );
             this._gameTitleTwo = new objects.Label(
                 "and machines",
                 "53px",
                 "EthnocentricReg",
-                "#FFFFFF",
+                config.Game.TEXT_COLOR,
                 230,
                 180,
                 false
@@ -36,7 +44,7 @@ module scenes {
                 "Thank you for playing!",
                 "36px",
                 "EthnocentricReg",
-                "#FFFFFF",
+                config.Game.TEXT_COLOR,
                 186,
                 340,
                 false
