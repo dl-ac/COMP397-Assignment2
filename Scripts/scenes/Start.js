@@ -27,19 +27,26 @@ var scenes;
         // PUBLIC METHODS
         Start.prototype.Start = function () {
             //instantiate a new Text object
-            this._welcomeLabel = new objects.Label("Mail Pilot", "80px", "Consolas", "#FFFF00", 320, 180, true);
+            this._gameTitleOne = new objects.Label("Universe", "80px", "EthnocentricReg", "#FFFFFF", 230, 100, false);
+            this._gameTitleTwo = new objects.Label("and machines", "53px", "EthnocentricReg", "#FFFFFF", 230, 180, false);
             // buttons
-            this._startButton = new objects.Button("startButton", 320, 430, true);
-            this._ocean = new objects.Ocean();
+            this._startButton = new objects.Button("buttonStart", 307.5, 340, true);
+            this._exitButton = new objects.Button("buttonExit", 716.5, 340, true);
+            this._infoButton = new objects.Button("buttonInfo", 512, 480, true);
+            // Background
+            this._background = new objects.Background("menu");
             this.Main();
         };
         Start.prototype.Update = function () {
-            this._ocean.Update();
+            this._background.Update();
         };
         Start.prototype.Main = function () {
-            this.addChild(this._ocean);
-            this.addChild(this._welcomeLabel);
+            this.addChild(this._background);
+            this.addChild(this._gameTitleOne);
+            this.addChild(this._gameTitleTwo);
             this.addChild(this._startButton);
+            this.addChild(this._exitButton);
+            this.addChild(this._infoButton);
             this._startButton.on("click", function () {
                 config.Game.SCENE = scenes.State.PLAY;
             });

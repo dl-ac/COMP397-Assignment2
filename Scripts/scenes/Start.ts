@@ -1,17 +1,17 @@
-module scenes
-{
-    export class Start extends objects.Scene
-    {
+module scenes {
+    export class Start extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS
-        private _welcomeLabel: objects.Label;
+        private _gameTitleOne: objects.Label;
+        private _gameTitleTwo: objects.Label;
         private _startButton: objects.Button;
-        private _ocean: objects.Ocean;
+        private _exitButton: objects.Button;
+        private _infoButton: objects.Button;
+        private _background: objects.Background;
 
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
-        constructor()
-        {
+        constructor() {
             super();
 
             this.Start();
@@ -20,41 +20,54 @@ module scenes
         // PRIVATE METHODS
 
         // PUBLIC METHODS
-        public Start(): void 
-        {
-             //instantiate a new Text object
-            this._welcomeLabel = new objects.Label("Mail Pilot", "80px", "Consolas", "#FFFF00", 320, 180, true);
+        public Start(): void {
+            //instantiate a new Text object
+            this._gameTitleOne = new objects.Label("Universe", "80px", "EthnocentricReg", "#FFFFFF", 230, 100, false);
+            this._gameTitleTwo = new objects.Label(
+                "and machines",
+                "53px",
+                "EthnocentricReg",
+                "#FFFFFF",
+                230,
+                180,
+                false
+            );
+
             // buttons
-             this._startButton = new objects.Button("startButton", 320, 430, true);
+            this._startButton = new objects.Button("buttonStart", 307.5, 340, true);
+            this._exitButton = new objects.Button("buttonExit", 716.5, 340, true);
+            this._infoButton = new objects.Button("buttonInfo", 512, 480, true);
 
-             this._ocean = new objects.Ocean();
+            // Background
+            this._background = new objects.Background("menu");
             this.Main();
-        }        
-        
-        public Update(): void 
-        {
-           this._ocean.Update();
         }
-        
-        public Main(): void 
-        {
-            this.addChild(this._ocean);
-       
-            this.addChild(this._welcomeLabel);
 
-        
+        public Update(): void {
+            this._background.Update();
+        }
+
+        public Main(): void {
+            this.addChild(this._background);
+
+            this.addChild(this._gameTitleOne);
+            this.addChild(this._gameTitleTwo);
+
             this.addChild(this._startButton);
+            this.addChild(this._exitButton);
+            this.addChild(this._infoButton);
 
-            this._startButton.on("click", ()=>{
+            this._startButton.on("click", () => {
                 config.Game.SCENE = scenes.State.PLAY;
             });
 
+            this._startButton.on("click", () => {
+                config.Game.SCENE = scenes.State.PLAY;
+            });
         }
 
-        public Clean(): void{
+        public Clean(): void {
             this.removeAllChildren();
         }
-
-        
     }
 }

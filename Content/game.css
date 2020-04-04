@@ -1,17 +1,19 @@
-body
-{
+body {
     background-color: lightgray;
 }
 
-#canvas
-{
+#canvas {
     background-color: white;
     border: 1px dotted black;
     border-radius: 10px;
 }
 
-#mainContent
-{
-    width: 640px;
+#mainContent {
+    width: 1024px;
     margin: 0 auto;
+}
+
+@font-face {
+    font-family: EthnocentricReg;
+    src: url(../Assets/fonts/ethnocentricRG.ttf);
 }

@@ -19,7 +19,7 @@ var objects;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Ocean() {
-            var _this = _super.call(this, config.Game.OCEAN_ATLAS, "ocean") || this;
+            var _this = _super.call(this, config.Game.BACKGROUND_ATLAS, "ocean") || this;
             _this.Start();
             return _this;
         }
@@ -34,7 +34,7 @@ var objects;
         };
         // PUBLIC METHODS
         Ocean.prototype.Start = function () {
-            this.type = enums.GameObjectType.OCEAN;
+            this.type = enums.GameObjectType.BACKGROUND;
             this._verticalSpeed = 5; // 5 px per frame
             this.velocity = new objects.Vector2(0, this._verticalSpeed);
             this.Reset();

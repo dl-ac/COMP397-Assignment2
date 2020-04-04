@@ -1,9 +1,7 @@
-module config
-{
-    export class Game
-    {
-        public static SCREEN_WIDTH:number = 640;
-        public static SCREEN_HEIGHT:number = 480;
+module config {
+    export class Game {
+        public static SCREEN_WIDTH: number = 1024;
+        public static SCREEN_HEIGHT: number = 576;
         public static SCENE: scenes.State;
         public static ASSETS: createjs.LoadQueue;
         public static FPS: number = 60; // 60 Frames per second
@@ -15,6 +13,6 @@ module config
         public static BULLET_MANAGER: managers.Bullet;
         public static KEYBOARD_MANAGER: managers.Keyboard;
         public static TEXTURE_ATLAS: createjs.SpriteSheet;
-        public static OCEAN_ATLAS: createjs.SpriteSheet;
+        public static BACKGROUND_ATLAS: createjs.SpriteSheet;
     }
 }

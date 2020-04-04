@@ -1,13 +1,17 @@
 module objects {
-    export class Ocean extends GameObject {
+    export class Background extends GameObject {
         // PRIVATE INSTANCE MEMBERS
         private _verticalSpeed?: number;
+        private _loop: boolean;
 
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
-        constructor() {
-            super(config.Game.BACKGROUND_ATLAS, "ocean");
+        constructor(backgroundName: string, verticalSpeed: number = 0, loop: boolean = false) {
+            super(config.Game.BACKGROUND_ATLAS, backgroundName);
+
+            this._verticalSpeed = verticalSpeed;
+            this._loop = loop;
 
             this.Start();
         }
@@ -16,7 +20,12 @@ module objects {
 
         protected _checkBounds(): void {
             if (this.y >= 0) {
-                this.Reset();
+                if (this._loop) {
+                    this.Reset();
+                } else {
+                    this._verticalSpeed = 0;
+                    this.velocity = new Vector2(0, 0);
+                }
             }
         }
 
@@ -27,18 +36,19 @@ module objects {
         // PUBLIC METHODS
         public Start(): void {
             this.type = enums.GameObjectType.BACKGROUND;
-            this._verticalSpeed = 5; // 5 px per frame
             this.velocity = new Vector2(0, this._verticalSpeed);
             this.Reset();
         }
 
         public Update(): void {
-            this._move();
-            this._checkBounds();
+            if (this._verticalSpeed > 0) {
+                this._move();
+                this._checkBounds();
+            }
         }
 
         public Reset(): void {
-            this.position = new Vector2(0, -960);
+            this.position = new Vector2(0, 0);
         }
     }
 }

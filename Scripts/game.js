@@ -3,23 +3,28 @@
 //means -> self-executing anonymous function
 var Game = (function () {
     // variable declarations
-    var canvas = document.getElementsByTagName('canvas')[0];
+    var canvas = document.getElementsByTagName("canvas")[0];
     var stage;
     var currentSceneState;
     var currentScene;
     var assets;
     var textureAtlas;
-    var oceanAtlas;
+    var backgroundAtlas;
     var assetManifest = [
-        { id: "ocean", src: "./Assets/images/ocean.gif" },
+        { id: "bgMenu", src: "./Assets/images/bgMenu.png" },
+        { id: "bgPlay", src: "./Assets/images/bgPlay.png" },
         { id: "atlas", src: "./Assets/sprites/atlas.png" },
         { id: "engine", src: "./Assets/audio/engine.ogg" },
         { id: "yay", src: "./Assets/audio/yay.ogg" },
         { id: "thunder", src: "./Assets/audio/thunder.ogg" },
+        // Will be added to an atlas later
+        { id: "buttonExit", src: "./Assets/images/btnExit.png" },
+        { id: "buttonInfo", src: "./Assets/images/btnInfo.png" },
+        { id: "buttonStart", src: "./Assets/images/btnStart.png" }
     ];
     var spriteData = {
-        "images": {},
-        "frames": [
+        images: {},
+        frames: [
             [1, 1, 16, 16, 0, 0, 0],
             [19, 1, 150, 50, 0, 0, 0],
             [1, 53, 226, 178, 0, 0, 0],
@@ -31,27 +36,42 @@ var Game = (function () {
             [1, 300, 150, 50, 0, 0, 0],
             [153, 300, 150, 50, 0, 0, 0]
         ],
-        "animations": {
-            "bullet": { "frames": [0] },
-            "button": { "frames": [1] },
-            "cloud": { "frames": [2] },
-            "island": { "frames": [3] },
-            "placeholder": { "frames": [4] },
-            "plane": {
-                "frames": [5, 6, 7],
-                "speed": 0.5
+        animations: {
+            bullet: { frames: [0] },
+            button: { frames: [1] },
+            cloud: { frames: [2] },
+            island: { frames: [3] },
+            placeholder: { frames: [4] },
+            plane: {
+                frames: [5, 6, 7],
+                speed: 0.5
             },
-            "restartButton": { "frames": [8] },
-            "startButton": { "frames": [9] }
+            restartButton: { frames: [8] },
+            startButton: { frames: [9] }
         }
     };
-    var oceanData = {
-        "images": {},
-        "frames": [
-            [0, 0, 640, 1440, 0, 0, 0],
+    var itemSpriteData = {
+        images: {},
+        frames: [
+            [1, 1, 203, 60, 0],
+            [1, 1, 100, 100, 1],
+            [1, 1, 203, 60, 2]
         ],
-        "animations": {
-            "ocean": { "frames": [0] },
+        animations: {
+            buttonExit: 0,
+            buttonInfo: 1,
+            buttonStart: 2
+        }
+    };
+    var backgroundData = {
+        images: {},
+        frames: [
+            [0, 0, 1024, 576, 0, 0, 0],
+            [0, 0, 1600, 576, 1, 0, 0]
+        ],
+        animations: {
+            menu: 0,
+            play: 1
         }
     };
     function Preload() {
@@ -69,14 +89,21 @@ var Game = (function () {
         console.log("%c Game Started!", "color: blue; font-size: 20px; font-weight: bold;");
         stage = new createjs.Stage(canvas);
         createjs.Ticker.framerate = config.Game.FPS;
-        createjs.Ticker.on('tick', Update);
+        createjs.Ticker.on("tick", Update);
         stage.enableMouseOver(20);
         spriteData.images = [assets.getResult("atlas")];
         textureAtlas = new createjs.SpriteSheet(spriteData);
         config.Game.TEXTURE_ATLAS = textureAtlas;
-        oceanData.images = [assets.getResult("ocean")];
-        oceanAtlas = new createjs.SpriteSheet(oceanData);
-        config.Game.OCEAN_ATLAS = oceanAtlas;
+        itemSpriteData.images = [
+            assets.getResult("buttonExit"),
+            assets.getResult("buttonInfo"),
+            assets.getResult("buttonStart")
+        ];
+        textureAtlas = new createjs.SpriteSheet(itemSpriteData);
+        config.Game.TEXTURE_ATLAS = textureAtlas;
+        backgroundData.images = [assets.getResult("bgMenu"), assets.getResult("bgPlay")];
+        backgroundAtlas = new createjs.SpriteSheet(backgroundData);
+        config.Game.BACKGROUND_ATLAS = backgroundAtlas;
         currentSceneState = scenes.State.NO_SCENE;
         config.Game.SCENE = scenes.State.START;
     }
@@ -120,6 +147,6 @@ var Game = (function () {
         currentSceneState = config.Game.SCENE;
         stage.addChild(currentScene);
     }
-    window.addEventListener('load', Preload);
+    window.addEventListener("load", Preload);
 })();
 //# sourceMappingURL=game.js.map

@@ -6,7 +6,7 @@ var enums;
         GameObjectType[GameObjectType["PLANE"] = 0] = "PLANE";
         GameObjectType[GameObjectType["ISLAND"] = 1] = "ISLAND";
         GameObjectType[GameObjectType["CLOUD"] = 2] = "CLOUD";
-        GameObjectType[GameObjectType["OCEAN"] = 3] = "OCEAN";
+        GameObjectType[GameObjectType["BACKGROUND"] = 3] = "BACKGROUND";
         GameObjectType[GameObjectType["BUTTON"] = 4] = "BUTTON";
         GameObjectType[GameObjectType["PLAYER"] = 5] = "PLAYER";
         GameObjectType[GameObjectType["BULLET"] = 6] = "BULLET";

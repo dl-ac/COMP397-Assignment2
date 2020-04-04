@@ -1,11 +1,9 @@
-module enums
-{
-    export enum GameObjectType
-    {
+module enums {
+    export enum GameObjectType {
         PLANE,
         ISLAND,
         CLOUD,
-        OCEAN,
+        BACKGROUND,
         BUTTON,
         PLAYER,
         BULLET,
