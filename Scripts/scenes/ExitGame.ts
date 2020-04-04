@@ -1,11 +1,10 @@
 module scenes {
-    export class Start extends objects.Scene {
+    export class ExitGame extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS
         private _gameTitleOne: objects.Label;
         private _gameTitleTwo: objects.Label;
-        private _startButton: objects.Button;
-        private _exitButton: objects.Button;
-        private _infoButton: objects.Button;
+        private _thanks: objects.Label;
+        private _menuButton: objects.Button;
         private _background: objects.Background;
 
         // PUBLIC PROPERTIES
@@ -33,10 +32,18 @@ module scenes {
                 false
             );
 
+            this._thanks = new objects.Label(
+                "Thank you for playing!",
+                "36px",
+                "EthnocentricReg",
+                "#FFFFFF",
+                186,
+                340,
+                false
+            );
+
             // buttons
-            this._startButton = new objects.Button("buttonStart", 307.5, 340, true);
-            this._exitButton = new objects.Button("buttonExit", 716.5, 340, true);
-            this._infoButton = new objects.Button("buttonInfo", 512, 480, true);
+            this._menuButton = new objects.Button("buttonMenu", 512, 536, true);
 
             // Background
             this._background = new objects.Background("menu");
@@ -52,21 +59,12 @@ module scenes {
 
             this.addChild(this._gameTitleOne);
             this.addChild(this._gameTitleTwo);
+            this.addChild(this._thanks);
 
-            this.addChild(this._startButton);
-            this.addChild(this._exitButton);
-            this.addChild(this._infoButton);
+            this.addChild(this._menuButton);
 
-            this._startButton.on("click", () => {
-                config.Game.SCENE = scenes.State.PLAY;
-            });
-
-            this._exitButton.on("click", () => {
-                config.Game.SCENE = scenes.State.EXIT;
-            });
-
-            this._infoButton.on("click", () => {
-                config.Game.SCENE = scenes.State.INFO;
+            this._menuButton.on("click", () => {
+                config.Game.SCENE = scenes.State.START;
             });
         }
 

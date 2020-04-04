@@ -24,6 +24,7 @@ let Game = (function() {
         // Will be added to an atlas later
         { id: "buttonExit", src: "./Assets/images/btnExit.png" },
         { id: "buttonInfo", src: "./Assets/images/btnInfo.png" },
+        { id: "buttonMenu", src: "./Assets/images/btnMenu.png" },
         { id: "buttonStart", src: "./Assets/images/btnStart.png" }
     ];
 
@@ -63,13 +64,15 @@ let Game = (function() {
         frames: [
             [1, 1, 203, 60, 0],
             [1, 1, 100, 100, 1],
-            [1, 1, 203, 60, 2]
+            [1, 1, 203, 60, 2],
+            [1, 1, 203, 60, 3]
         ],
 
         animations: {
             buttonExit: 0,
             buttonInfo: 1,
-            buttonStart: 2
+            buttonMenu: 2,
+            buttonStart: 3
         }
     };
 
@@ -111,6 +114,7 @@ let Game = (function() {
         itemSpriteData.images = [
             assets.getResult("buttonExit"),
             assets.getResult("buttonInfo"),
+            assets.getResult("buttonMenu"),
             assets.getResult("buttonStart")
         ];
         textureAtlas = new createjs.SpriteSheet(itemSpriteData);
@@ -158,13 +162,25 @@ let Game = (function() {
                 console.log("switch to Start Scene");
                 currentScene = new scenes.Start();
                 break;
+
+            case scenes.State.INFO:
+                console.log("switch to Instructions Scene");
+                currentScene = new scenes.Instructions();
+                break;
+
             case scenes.State.PLAY:
                 console.log("switch to Play Scene");
                 currentScene = new scenes.Play();
                 break;
+
             case scenes.State.END:
                 console.log("switch to End Scene");
                 currentScene = new scenes.End();
+                break;
+
+            case scenes.State.EXIT:
+                console.log("switch to Exit Game Scene");
+                currentScene = new scenes.ExitGame();
                 break;
         }
 

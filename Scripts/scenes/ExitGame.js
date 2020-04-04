@@ -14,54 +14,46 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var Start = /** @class */ (function (_super) {
-        __extends(Start, _super);
+    var ExitGame = /** @class */ (function (_super) {
+        __extends(ExitGame, _super);
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
-        function Start() {
+        function ExitGame() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         // PRIVATE METHODS
         // PUBLIC METHODS
-        Start.prototype.Start = function () {
+        ExitGame.prototype.Start = function () {
             //instantiate a new Text object
             this._gameTitleOne = new objects.Label("Universe", "80px", "EthnocentricReg", "#FFFFFF", 230, 100, false);
             this._gameTitleTwo = new objects.Label("and machines", "53px", "EthnocentricReg", "#FFFFFF", 230, 180, false);
+            this._thanks = new objects.Label("Thank you for playing!", "36px", "EthnocentricReg", "#FFFFFF", 186, 340, false);
             // buttons
-            this._startButton = new objects.Button("buttonStart", 307.5, 340, true);
-            this._exitButton = new objects.Button("buttonExit", 716.5, 340, true);
-            this._infoButton = new objects.Button("buttonInfo", 512, 480, true);
+            this._menuButton = new objects.Button("buttonMenu", 512, 536, true);
             // Background
             this._background = new objects.Background("menu");
             this.Main();
         };
-        Start.prototype.Update = function () {
+        ExitGame.prototype.Update = function () {
             this._background.Update();
         };
-        Start.prototype.Main = function () {
+        ExitGame.prototype.Main = function () {
             this.addChild(this._background);
             this.addChild(this._gameTitleOne);
             this.addChild(this._gameTitleTwo);
-            this.addChild(this._startButton);
-            this.addChild(this._exitButton);
-            this.addChild(this._infoButton);
-            this._startButton.on("click", function () {
-                config.Game.SCENE = scenes.State.PLAY;
-            });
-            this._exitButton.on("click", function () {
-                config.Game.SCENE = scenes.State.EXIT;
-            });
-            this._infoButton.on("click", function () {
-                config.Game.SCENE = scenes.State.INFO;
+            this.addChild(this._thanks);
+            this.addChild(this._menuButton);
+            this._menuButton.on("click", function () {
+                config.Game.SCENE = scenes.State.START;
             });
         };
-        Start.prototype.Clean = function () {
+        ExitGame.prototype.Clean = function () {
             this.removeAllChildren();
         };
-        return Start;
+        return ExitGame;
     }(objects.Scene));
-    scenes.Start = Start;
+    scenes.ExitGame = ExitGame;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=Start.js.map
+//# sourceMappingURL=ExitGame.js.map
