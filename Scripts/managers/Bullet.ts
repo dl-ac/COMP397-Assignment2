@@ -1,7 +1,5 @@
-module managers
-{
-    export class Bullet 
-    {
+module managers {
+    export class Bullet {
         // PRIVATE INSTANCE MEMBERS
         private _bulletNumber: number;
         private _bulletPool: Array<objects.Bullet>;
@@ -9,15 +7,12 @@ module managers
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
-        constructor()
-        {
-
+        constructor() {
             this._buildBulletPool();
         }
 
         // PRIVATE METHODS
-        private _buildBulletPool():void
-        {
+        private _buildBulletPool(): void {
             // initialize bullet number
             this._bulletNumber = 100;
 
@@ -32,20 +27,18 @@ module managers
 
         // PUBLIC METHODS
 
-        public AddBulletsToScene(scene:objects.Scene)
-        {
+        public AddBulletsToScene(scene: objects.Scene) {
             this._bulletPool.forEach(bullet => {
                 scene.addChild(bullet);
             });
         }
 
-
-        public GetBullet():objects.Bullet
-        {
+        public GetBullet(): objects.Bullet {
             // remove the bullet from the front of the pool
             let bullet = this._bulletPool.shift();
 
             bullet.isActive = true;
+            bullet.gotoAndPlay("bulletPlayerStart");
 
             // push the bullet to the back of the pool
             this._bulletPool.push(bullet);
@@ -54,8 +47,7 @@ module managers
             return bullet;
         }
 
-        public Update()
-        {
+        public Update() {
             this._bulletPool.forEach(bullet => {
                 bullet.Update();
             });

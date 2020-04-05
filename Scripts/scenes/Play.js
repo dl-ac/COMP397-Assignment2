@@ -16,12 +16,6 @@ var scenes;
 (function (scenes) {
     var Play = /** @class */ (function (_super) {
         __extends(Play, _super);
-        // private _plane?: objects.Plane;
-        // private _island?: objects.Island;
-        // private _clouds: Array<objects.Cloud>;
-        // private _scoreBoard: managers.ScoreBoard;
-        // private _bulletManager: managers.Bullet;
-        // private _keyboardManager: managers.Keyboard;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Play() {
@@ -34,7 +28,7 @@ var scenes;
         //initialize and instatiate
         Play.prototype.Start = function () {
             this._background = new objects.Background(false);
-            // this._plane = new objects.Plane();
+            this._player = new objects.Player();
             // this._island = new objects.Island();
             // // create the cloud array
             // this._clouds = new Array<objects.Cloud>(); // empty container
@@ -42,18 +36,18 @@ var scenes;
             // for (let index = 0; index < config.Game.CLOUD_NUM; index++) {
             //     this._clouds.push(new objects.Cloud());
             // }
-            // this._scoreBoard = new managers.ScoreBoard();
-            // config.Game.SCORE_BOARD = this._scoreBoard;
-            // this._bulletManager = new managers.Bullet();
-            // config.Game.BULLET_MANAGER = this._bulletManager;
-            // this._keyboardManager = new managers.Keyboard();
-            // config.Game.KEYBOARD_MANAGER = this._keyboardManager;
+            this._scoreBoard = new managers.ScoreBoard();
+            config.Game.SCORE_BOARD = this._scoreBoard;
+            this._bulletManager = new managers.Bullet();
+            config.Game.BULLET_MANAGER = this._bulletManager;
+            this._keyboardManager = new managers.Keyboard();
+            config.Game.KEYBOARD_MANAGER = this._keyboardManager;
             this.Main();
         };
         Play.prototype.Update = function () {
             this._background.Update();
-            // this._plane.Update();
-            // this._bulletManager.Update();
+            this._player.Update();
+            this._bulletManager.Update();
             // this._island.Update();
             // managers.Collision.AABBCheck(this._plane, this._island);
             // this._clouds.forEach(cloud => {
@@ -64,8 +58,8 @@ var scenes;
         Play.prototype.Main = function () {
             this.addChild(this._background);
             // this.addChild(this._island);
-            // this.addChild(this._plane);
-            // this._bulletManager.AddBulletsToScene(this);
+            this.addChild(this._player);
+            this._bulletManager.AddBulletsToScene(this);
             // for (const cloud of this._clouds) {
             //     this.addChild(cloud);
             // }

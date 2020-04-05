@@ -19,7 +19,7 @@ var objects;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Bullet() {
-            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "bullet", new objects.Vector2(), true) || this;
+            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "bulletPlayer", new objects.Vector2(), true) || this;
             _this.Start();
             return _this;
         }
@@ -39,9 +39,9 @@ var objects;
         };
         // PUBLIC METHODS
         Bullet.prototype.Start = function () {
-            this.type = enums.GameObjectType.BULLET;
-            this._verticalSpeed = 5; // 5 px per frame
-            this.velocity = new objects.Vector2(0, -this._verticalSpeed);
+            this.type = enums.GameObjectType.PLAYER_BULLET;
+            this._horizontalSpeed = 12; // 15 px per frame
+            this.velocity = new objects.Vector2(this._horizontalSpeed, 0);
             this.Reset();
         };
         Bullet.prototype.Update = function () {

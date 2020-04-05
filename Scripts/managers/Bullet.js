@@ -28,6 +28,7 @@ var managers;
             // remove the bullet from the front of the pool
             var bullet = this._bulletPool.shift();
             bullet.isActive = true;
+            bullet.gotoAndPlay("bulletPlayerStart");
             // push the bullet to the back of the pool
             this._bulletPool.push(bullet);
             // return a reference to the active bullet

@@ -25,7 +25,28 @@ let Game = (function() {
         { id: "buttonExit", src: "./Assets/images/btnExit.png" },
         { id: "buttonInfo", src: "./Assets/images/btnInfo.png" },
         { id: "buttonMenu", src: "./Assets/images/btnMenu.png" },
-        { id: "buttonStart", src: "./Assets/images/btnStart.png" }
+        { id: "buttonStart", src: "./Assets/images/btnStart.png" },
+        { id: "planeFull0", src: "./Assets/images/PlaneFull_0.png" },
+        { id: "planeFull1", src: "./Assets/images/PlaneFull_1.png" },
+        { id: "planeFull2", src: "./Assets/images/PlaneFull_2.png" },
+        { id: "planeFull3", src: "./Assets/images/PlaneFull_3.png" },
+        { id: "planeFull4", src: "./Assets/images/PlaneFull_4.png" },
+        { id: "planeFull5", src: "./Assets/images/PlaneFull_5.png" },
+        { id: "planeFull6", src: "./Assets/images/PlaneFull_6.png" },
+        { id: "planeFull7", src: "./Assets/images/PlaneFull_7.png" },
+        { id: "planeFull8", src: "./Assets/images/PlaneFull_8.png" },
+        { id: "planeFull9", src: "./Assets/images/PlaneFull_9.png" },
+        { id: "planeHalf0", src: "./Assets/images/PlaneHalf_0.png" },
+        { id: "planeHalf1", src: "./Assets/images/PlaneHalf_1.png" },
+        { id: "planeHalf2", src: "./Assets/images/PlaneHalf_2.png" },
+        { id: "planeHalf3", src: "./Assets/images/PlaneHalf_3.png" },
+        { id: "planeHalf4", src: "./Assets/images/PlaneHalf_4.png" },
+        { id: "planeHalf5", src: "./Assets/images/PlaneHalf_5.png" },
+        { id: "planeHalf6", src: "./Assets/images/PlaneHalf_6.png" },
+        { id: "planeHalf7", src: "./Assets/images/PlaneHalf_7.png" },
+        { id: "planeHalf8", src: "./Assets/images/PlaneHalf_8.png" },
+        { id: "planeHalf9", src: "./Assets/images/PlaneHalf_9.png" },
+        { id: "bulletPlayer", src: "./Assets/images/bulletPlayer.png" }
     ];
 
     let spriteData = {
@@ -62,17 +83,47 @@ let Game = (function() {
         images: {},
 
         frames: [
-            [1, 1, 203, 60, 0],
-            [1, 1, 100, 100, 1],
-            [1, 1, 203, 60, 2],
-            [1, 1, 203, 60, 3]
+            [0, 0, 203, 60, 0],
+            [0, 0, 100, 100, 1],
+            [0, 0, 203, 60, 2],
+            [0, 0, 203, 60, 3],
+            [0, 0, 53, 50, 4],
+            [0, 0, 53, 50, 5],
+            [0, 0, 53, 50, 6],
+            [0, 0, 53, 50, 7],
+            [0, 0, 53, 50, 8],
+            [0, 0, 53, 50, 9],
+            [0, 0, 53, 50, 10],
+            [0, 0, 53, 50, 11],
+            [0, 0, 53, 50, 12],
+            [0, 0, 53, 50, 13],
+            [0, 0, 65, 50, 14],
+            [0, 0, 65, 50, 15],
+            [0, 0, 65, 50, 16],
+            [0, 0, 65, 50, 17],
+            [0, 0, 65, 50, 18],
+            [0, 0, 65, 50, 19],
+            [0, 0, 65, 50, 20],
+            [0, 0, 65, 50, 21],
+            [0, 0, 65, 50, 22],
+            [0, 0, 65, 50, 23],
+            [0, 0, 22, 18, 24]
         ],
 
         animations: {
             buttonExit: 0,
             buttonInfo: 1,
             buttonMenu: 2,
-            buttonStart: 3
+            buttonStart: 3,
+            planeFull: {
+                frames: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+                speed: 0.5
+            },
+            planeHalf: {
+                frames: [14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+                speed: 0.5
+            },
+            bulletPlayer: 24
         }
     };
 
@@ -115,7 +166,28 @@ let Game = (function() {
             assets.getResult("buttonExit"),
             assets.getResult("buttonInfo"),
             assets.getResult("buttonMenu"),
-            assets.getResult("buttonStart")
+            assets.getResult("buttonStart"),
+            assets.getResult("planeFull0"),
+            assets.getResult("planeFull1"),
+            assets.getResult("planeFull2"),
+            assets.getResult("planeFull3"),
+            assets.getResult("planeFull4"),
+            assets.getResult("planeFull5"),
+            assets.getResult("planeFull6"),
+            assets.getResult("planeFull7"),
+            assets.getResult("planeFull8"),
+            assets.getResult("planeFull9"),
+            assets.getResult("planeHalf0"),
+            assets.getResult("planeHalf1"),
+            assets.getResult("planeHalf2"),
+            assets.getResult("planeHalf3"),
+            assets.getResult("planeHalf4"),
+            assets.getResult("planeHalf5"),
+            assets.getResult("planeHalf6"),
+            assets.getResult("planeHalf7"),
+            assets.getResult("planeHalf8"),
+            assets.getResult("planeHalf9"),
+            assets.getResult("bulletPlayer")
         ];
         textureAtlas = new createjs.SpriteSheet(itemSpriteData);
         config.Game.TEXTURE_ATLAS = textureAtlas;

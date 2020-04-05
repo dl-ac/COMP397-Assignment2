@@ -9,7 +9,7 @@ var enums;
         GameObjectType[GameObjectType["BACKGROUND"] = 3] = "BACKGROUND";
         GameObjectType[GameObjectType["BUTTON"] = 4] = "BUTTON";
         GameObjectType[GameObjectType["PLAYER"] = 5] = "PLAYER";
-        GameObjectType[GameObjectType["BULLET"] = 6] = "BULLET";
+        GameObjectType[GameObjectType["PLAYER_BULLET"] = 6] = "PLAYER_BULLET";
         GameObjectType[GameObjectType["UNDEFINED"] = 7] = "UNDEFINED";
         GameObjectType[GameObjectType["NUM_OF_TYPES"] = 8] = "NUM_OF_TYPES";
     })(GameObjectType = enums.GameObjectType || (enums.GameObjectType = {}));

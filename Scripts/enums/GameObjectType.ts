@@ -6,7 +6,7 @@ module enums {
         BACKGROUND,
         BUTTON,
         PLAYER,
-        BULLET,
+        PLAYER_BULLET,
         UNDEFINED,
         NUM_OF_TYPES
     }
