@@ -33,6 +33,8 @@ module objects {
             } else if (this.position.y >= config.Game.SCREEN_HEIGHT - this.halfHeight) {
                 this.position = new Vector2(this.position.x, config.Game.SCREEN_HEIGHT - this.halfHeight);
             }
+
+            this._bulletSpawn = new Vector2(this.position.x + this.halfWidth, this.position.y + 4);
         }
 
         private _move(): void {
@@ -58,7 +60,6 @@ module objects {
             // Move if there is any moviment and update the bullet spawn point
             if (velX != 0 || velY != 0) {
                 this.position = Vector2.add(this.position, new Vector2(velX, velY));
-                this._bulletSpawn = new Vector2(this.position.x + this.halfWidth, this.position.y + 4);
             }
         }
 

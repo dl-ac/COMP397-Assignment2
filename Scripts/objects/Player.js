@@ -46,6 +46,7 @@ var objects;
             else if (this.position.y >= config.Game.SCREEN_HEIGHT - this.halfHeight) {
                 this.position = new objects.Vector2(this.position.x, config.Game.SCREEN_HEIGHT - this.halfHeight);
             }
+            this._bulletSpawn = new objects.Vector2(this.position.x + this.halfWidth, this.position.y + 4);
         };
         Player.prototype._move = function () {
             var velX = 0;
@@ -67,7 +68,6 @@ var objects;
             // Move if there is any moviment and update the bullet spawn point
             if (velX != 0 || velY != 0) {
                 this.position = objects.Vector2.add(this.position, new objects.Vector2(velX, velY));
-                this._bulletSpawn = new objects.Vector2(this.position.x + this.halfWidth, this.position.y + 4);
             }
         };
         // PUBLIC METHODS
