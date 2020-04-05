@@ -56,6 +56,7 @@ var scenes;
             // });
         };
         Play.prototype.Main = function () {
+            var _this = this;
             this.addChild(this._background);
             // this.addChild(this._island);
             this.addChild(this._player);
@@ -63,6 +64,7 @@ var scenes;
             // for (const cloud of this._clouds) {
             //     this.addChild(cloud);
             // }
+            this._scoreBoard.getPlayGameObjects().forEach(function (go) { return _this.addChild(go); });
             // this.addChild(this._scoreBoard.LivesLabel);
             // this.addChild(this._scoreBoard.ScoreLabel);
         };

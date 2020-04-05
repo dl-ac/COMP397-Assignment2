@@ -40,11 +40,11 @@ var objects;
                 this.position = new objects.Vector2(config.Game.SCREEN_WIDTH * 0.5 - this.halfWidth, this.position.y);
             }
             // axis Y
-            if (this.position.y <= this.height) {
-                this.position = new objects.Vector2(this.position.x, this.height);
+            if (this.position.y <= this.halfHeight + 36) {
+                this.position = new objects.Vector2(this.position.x, this.halfHeight + 36);
             }
-            else if (this.position.y >= config.Game.SCREEN_HEIGHT - this.height) {
-                this.position = new objects.Vector2(this.position.x, config.Game.SCREEN_HEIGHT - this.height);
+            else if (this.position.y >= config.Game.SCREEN_HEIGHT - this.halfHeight) {
+                this.position = new objects.Vector2(this.position.x, config.Game.SCREEN_HEIGHT - this.halfHeight);
             }
         };
         Player.prototype._move = function () {
@@ -72,7 +72,7 @@ var objects;
         };
         // PUBLIC METHODS
         Player.prototype.Start = function () {
-            this.type = enums.GameObjectType.PLANE;
+            this.type = enums.GameObjectType.PLAYER;
             // this._engineSound = createjs.Sound.play("engine");
             // this._engineSound.loop = -1; // loop forever
             // this._engineSound.volume = 0.1; // 10% volume

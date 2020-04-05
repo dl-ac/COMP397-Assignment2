@@ -13,6 +13,9 @@ let Game = (function() {
     let textureAtlas: createjs.SpriteSheet;
     let backgroundAtlas: createjs.SpriteSheet;
 
+    let buttonMusic: objects.Button;
+    let buttonSound: objects.Button;
+
     let assetManifest = [
         { id: "bgMenu", src: "./Assets/images/bgMenu.png" },
         { id: "bgPlay", src: "./Assets/images/bgPlay.png" },
@@ -46,7 +49,17 @@ let Game = (function() {
         { id: "planeHalf7", src: "./Assets/images/PlaneHalf_7.png" },
         { id: "planeHalf8", src: "./Assets/images/PlaneHalf_8.png" },
         { id: "planeHalf9", src: "./Assets/images/PlaneHalf_9.png" },
-        { id: "bulletPlayer", src: "./Assets/images/bulletPlayer.png" }
+        { id: "bulletPlayer", src: "./Assets/images/bulletPlayer.png" },
+        { id: "healthBar", src: "./Assets/images/healthBarTable.png" },
+        { id: "healthDot", src: "./Assets/images/healthDot.png" },
+        { id: "buttonMusicOff", src: "./Assets/images/btnMusicOff.png" },
+        { id: "buttonMusicOn", src: "./Assets/images/btnMusicOn.png" },
+        { id: "buttonSoundOff", src: "./Assets/images/btnSoundOff.png" },
+        { id: "buttonSoundOn", src: "./Assets/images/btnSoundOn.png" },
+        { id: "bossHealthBar", src: "./Assets/images/bossHealthBar.png" },
+        { id: "bossHealthDotL", src: "./Assets/images/bossHealthDotLeft.png" },
+        { id: "bossHealthDotM", src: "./Assets/images/bossHealthDotMid.png" },
+        { id: "bossHealthDotR", src: "./Assets/images/bossHealthDotRight.png" }
     ];
 
     let spriteData = {
@@ -107,7 +120,17 @@ let Game = (function() {
             [0, 0, 65, 50, 21],
             [0, 0, 65, 50, 22],
             [0, 0, 65, 50, 23],
-            [0, 0, 22, 18, 24]
+            [0, 0, 22, 18, 24],
+            [0, 0, 194, 34, 25],
+            [0, 0, 13, 26, 26],
+            [0, 0, 30, 30, 27],
+            [0, 0, 30, 30, 28],
+            [0, 0, 30, 30, 29],
+            [0, 0, 30, 30, 30],
+            [0, 0, 624, 18, 31],
+            [0, 0, 27, 12, 32],
+            [0, 0, 30, 12, 33],
+            [0, 0, 27, 12, 34]
         ],
 
         animations: {
@@ -123,7 +146,17 @@ let Game = (function() {
                 frames: [14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
                 speed: 0.5
             },
-            bulletPlayer: 24
+            bulletPlayer: 24,
+            healthBar: 25,
+            healthDot: 26,
+            buttonMusicOff: 27,
+            buttonMusicOn: 28,
+            buttonSoundOff: 29,
+            buttonSoundOn: 30,
+            bossHealthBar: 31,
+            bossHealthDotLeft: 32,
+            bossHealthDotMid: 33,
+            bossHealthDotRight: 34
         }
     };
 
@@ -187,7 +220,17 @@ let Game = (function() {
             assets.getResult("planeHalf7"),
             assets.getResult("planeHalf8"),
             assets.getResult("planeHalf9"),
-            assets.getResult("bulletPlayer")
+            assets.getResult("bulletPlayer"),
+            assets.getResult("healthBar"),
+            assets.getResult("healthDot"),
+            assets.getResult("buttonMusicOff"),
+            assets.getResult("buttonMusicOn"),
+            assets.getResult("buttonSoundOff"),
+            assets.getResult("buttonSoundOn"),
+            assets.getResult("bossHealthBar"),
+            assets.getResult("bossHealthDotL"),
+            assets.getResult("bossHealthDotM"),
+            assets.getResult("bossHealthDotR")
         ];
         textureAtlas = new createjs.SpriteSheet(itemSpriteData);
         config.Game.TEXTURE_ATLAS = textureAtlas;
@@ -198,6 +241,22 @@ let Game = (function() {
 
         currentSceneState = scenes.State.NO_SCENE;
         config.Game.SCENE = scenes.State.START;
+
+        buttonMusic = new objects.Button("buttonMusicOn", config.Game.SCREEN_WIDTH - 55, 20, true);
+        buttonSound = new objects.Button("buttonSoundOn", config.Game.SCREEN_WIDTH - 20, 20, true);
+
+        config.Game.GAME_MUSIC = true;
+        config.Game.GAME_SOUND = true;
+
+        buttonMusic.on("click", () => {
+            config.Game.GAME_MUSIC = !config.Game.GAME_MUSIC;
+            buttonMusic.gotoAndStop(`buttonMusic${config.Game.GAME_MUSIC ? "On" : "Off"}`);
+        });
+
+        buttonSound.on("click", () => {
+            config.Game.GAME_SOUND = !config.Game.GAME_SOUND;
+            buttonSound.gotoAndStop(`buttonSound${config.Game.GAME_SOUND ? "On" : "Off"}`);
+        });
     }
 
     /**
@@ -258,6 +317,8 @@ let Game = (function() {
 
         currentSceneState = config.Game.SCENE;
         stage.addChild(currentScene);
+        currentScene.addChild(buttonMusic);
+        currentScene.addChild(buttonSound);
     }
 
     window.addEventListener("load", Preload);

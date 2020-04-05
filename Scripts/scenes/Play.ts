@@ -75,6 +75,8 @@ module scenes {
             //     this.addChild(cloud);
             // }
 
+            this._scoreBoard.getPlayGameObjects().forEach(go => this.addChild(go));
+
             // this.addChild(this._scoreBoard.LivesLabel);
 
             // this.addChild(this._scoreBoard.ScoreLabel);

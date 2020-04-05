@@ -15,5 +15,7 @@ module config {
         public static TEXTURE_ATLAS: createjs.SpriteSheet;
         public static BACKGROUND_ATLAS: createjs.SpriteSheet;
         public static TEXT_COLOR: string = "#e3f5f4";
+        public static GAME_MUSIC: boolean;
+        public static GAME_SOUND: boolean;
     }
 }
