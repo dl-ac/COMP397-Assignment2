@@ -19,7 +19,7 @@ var objects;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Bullet() {
-            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "bulletPlayer", new objects.Vector2(), true) || this;
+            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "playerBullet", new objects.Vector2(), true) || this;
             _this.Start();
             return _this;
         }

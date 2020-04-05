@@ -13,7 +13,7 @@ module objects {
 
         // CONSTRUCTOR
         constructor() {
-            super(config.Game.TEXTURE_ATLAS, "planeFull", 0, 0, true);
+            super(config.Game.TEXTURE_ATLAS, "playerFull", 0, 0, true);
 
             this.Start();
         }

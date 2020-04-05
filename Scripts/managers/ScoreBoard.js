@@ -41,11 +41,11 @@ var managers;
             this._bossLives = this.START_BOSS_LIVES;
             this.Score = config.Game.SCORE;
             // Initialize the player health bar
-            this._playerHealthTable = new objects.Image("healthBar");
+            this._playerHealthTable = new objects.Image("playerHealthBar");
             this._playerHealthDots = new Array();
             var curPosX = 4;
             for (var iCt = 0; iCt < this.PlayerLives; iCt++) {
-                this._playerHealthDots[iCt] = new objects.Image("healthDot", curPosX, 4, false);
+                this._playerHealthDots[iCt] = new objects.Image("playerHealthDot", curPosX, 4, false);
                 curPosX += 16;
             }
             // Initialize the boss health bar

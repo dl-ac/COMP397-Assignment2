@@ -3,9 +3,7 @@ module scenes {
         // PRIVATE INSTANCE MEMBERS
         private _background: objects.Background;
         private _player?: objects.Player;
-        // private _island?: objects.Island;
-
-        // private _clouds: Array<objects.Cloud>;
+        private _initialTick: number;
 
         private _scoreBoard: managers.ScoreBoard;
         private _bulletManager: managers.Bullet;
@@ -16,6 +14,9 @@ module scenes {
         // CONSTRUCTOR
         constructor() {
             super();
+
+            // Get the ticker
+            this._initialTick = createjs.Ticker.getTicks();
 
             this.Start();
         }
@@ -28,15 +29,6 @@ module scenes {
         public Start(): void {
             this._background = new objects.Background(false);
             this._player = new objects.Player();
-            // this._island = new objects.Island();
-
-            // // create the cloud array
-            // this._clouds = new Array<objects.Cloud>(); // empty container
-
-            // // instantiating CLOUD_NUM clouds
-            // for (let index = 0; index < config.Game.CLOUD_NUM; index++) {
-            //     this._clouds.push(new objects.Cloud());
-            // }
 
             this._scoreBoard = new managers.ScoreBoard();
             config.Game.SCORE_BOARD = this._scoreBoard;
@@ -54,36 +46,19 @@ module scenes {
             this._background.Update();
             this._player.Update();
             this._bulletManager.Update();
-            // this._island.Update();
-            // managers.Collision.AABBCheck(this._plane, this._island);
-            // this._clouds.forEach(cloud => {
-            //     cloud.Update();
-            //     managers.Collision.squaredRadiusCheck(this._plane, cloud);
-            // });
         }
 
         public Main(): void {
             this.addChild(this._background);
 
-            // this.addChild(this._island);
-
             this.addChild(this._player);
 
             this._bulletManager.AddBulletsToScene(this);
 
-            // for (const cloud of this._clouds) {
-            //     this.addChild(cloud);
-            // }
-
             this._scoreBoard.getPlayGameObjects().forEach(go => this.addChild(go));
-
-            // this.addChild(this._scoreBoard.LivesLabel);
-
-            // this.addChild(this._scoreBoard.ScoreLabel);
         }
 
         public Clean(): void {
-            // this._plane.engineSound.stop();
             this.removeAllChildren();
         }
     }

@@ -20,6 +20,8 @@ var scenes;
         // CONSTRUCTOR
         function Play() {
             var _this = _super.call(this) || this;
+            // Get the ticker
+            _this._initialTick = createjs.Ticker.getTicks();
             _this.Start();
             return _this;
         }
@@ -29,13 +31,6 @@ var scenes;
         Play.prototype.Start = function () {
             this._background = new objects.Background(false);
             this._player = new objects.Player();
-            // this._island = new objects.Island();
-            // // create the cloud array
-            // this._clouds = new Array<objects.Cloud>(); // empty container
-            // // instantiating CLOUD_NUM clouds
-            // for (let index = 0; index < config.Game.CLOUD_NUM; index++) {
-            //     this._clouds.push(new objects.Cloud());
-            // }
             this._scoreBoard = new managers.ScoreBoard();
             config.Game.SCORE_BOARD = this._scoreBoard;
             this._bulletManager = new managers.Bullet();
@@ -48,28 +43,15 @@ var scenes;
             this._background.Update();
             this._player.Update();
             this._bulletManager.Update();
-            // this._island.Update();
-            // managers.Collision.AABBCheck(this._plane, this._island);
-            // this._clouds.forEach(cloud => {
-            //     cloud.Update();
-            //     managers.Collision.squaredRadiusCheck(this._plane, cloud);
-            // });
         };
         Play.prototype.Main = function () {
             var _this = this;
             this.addChild(this._background);
-            // this.addChild(this._island);
             this.addChild(this._player);
             this._bulletManager.AddBulletsToScene(this);
-            // for (const cloud of this._clouds) {
-            //     this.addChild(cloud);
-            // }
             this._scoreBoard.getPlayGameObjects().forEach(function (go) { return _this.addChild(go); });
-            // this.addChild(this._scoreBoard.LivesLabel);
-            // this.addChild(this._scoreBoard.ScoreLabel);
         };
         Play.prototype.Clean = function () {
-            // this._plane.engineSound.stop();
             this.removeAllChildren();
         };
         return Play;

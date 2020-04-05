@@ -26,15 +26,15 @@
             </struct>
         </array>
         <key>allowRotation</key>
-        <true/>
+        <false/>
         <key>shapeDebug</key>
         <false/>
         <key>dpi</key>
         <uint>72</uint>
         <key>dataFormat</key>
-        <string>SDL</string>
+        <string>easeljs</string>
         <key>textureFileName</key>
-        <filename>../../../Comp397-W2020-Lesson10A/Assets/sprites/atlas.png</filename>
+        <filename>atlas.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -74,7 +74,7 @@
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
-        <uint>1</uint>
+        <uint>0</uint>
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
@@ -129,15 +129,10 @@
         </struct>
         <key>dataFileNames</key>
         <map type="GFileNameMap">
-            <key>SDL</key>
+            <key>json</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../../Comp397-W2020-Lesson10A/Assets/sprites/atlas2.txt</filename>
-            </struct>
-            <key>header</key>
-            <struct type="DataFile">
-                <key>name</key>
-                <filename></filename>
+                <filename>atlas.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -168,13 +163,13 @@
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
-            <uint>1</uint>
+            <uint>0</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
             <uint>1</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">Trim</enum>
+            <enum type="SpriteSettings::TrimMode">None</enum>
             <key>tracerTolerance</key>
             <int>200</int>
             <key>heuristicMask</key>
@@ -186,7 +181,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../Comp397-W2020-Lesson10A/Assets/textures/bullet.png</key>
+            <key type="filename">../images/Enemy.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -195,13 +190,22 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>4,4,8,8</rect>
+                <rect>12,10,25,20</rect>
                 <key>scale9Paddings</key>
-                <rect>4,4,8,8</rect>
+                <rect>12,10,25,20</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../../Comp397-W2020-Lesson10A/Assets/textures/cloud.png</key>
+            <key type="filename">../images/boss/bossAttack1_0.png</key>
+            <key type="filename">../images/boss/bossAttack1_1.png</key>
+            <key type="filename">../images/boss/bossAttack1_2.png</key>
+            <key type="filename">../images/boss/bossAttack1_3.png</key>
+            <key type="filename">../images/boss/bossAttack1_4.png</key>
+            <key type="filename">../images/boss/bossAttack1_5.png</key>
+            <key type="filename">../images/boss/bossAttack1_6.png</key>
+            <key type="filename">../images/boss/bossAttack1_7.png</key>
+            <key type="filename">../images/boss/bossAttack1_8.png</key>
+            <key type="filename">../images/boss/bossAttack1_9.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -210,13 +214,22 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>57,45,113,89</rect>
+                <rect>30,50,59,100</rect>
                 <key>scale9Paddings</key>
-                <rect>57,45,113,89</rect>
+                <rect>30,50,59,100</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../../Comp397-W2020-Lesson10A/Assets/textures/island.png</key>
+            <key type="filename">../images/boss/bossAttack2_0.png</key>
+            <key type="filename">../images/boss/bossAttack2_1.png</key>
+            <key type="filename">../images/boss/bossAttack2_2.png</key>
+            <key type="filename">../images/boss/bossAttack2_3.png</key>
+            <key type="filename">../images/boss/bossAttack2_4.png</key>
+            <key type="filename">../images/boss/bossAttack2_5.png</key>
+            <key type="filename">../images/boss/bossAttack2_6.png</key>
+            <key type="filename">../images/boss/bossAttack2_7.png</key>
+            <key type="filename">../images/boss/bossAttack2_8.png</key>
+            <key type="filename">../images/boss/bossAttack2_9.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -225,15 +238,211 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>16,16,31,31</rect>
+                <rect>33,50,65,100</rect>
                 <key>scale9Paddings</key>
-                <rect>16,16,31,31</rect>
+                <rect>33,50,65,100</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../../Comp397-W2020-Lesson10A/Assets/textures/plane1.png</key>
-            <key type="filename">../../../Comp397-W2020-Lesson10A/Assets/textures/plane2.png</key>
-            <key type="filename">../../../Comp397-W2020-Lesson10A/Assets/textures/plane3.png</key>
+            <key type="filename">../images/boss/bossBullet.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>9,5,18,9</rect>
+                <key>scale9Paddings</key>
+                <rect>9,5,18,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/boss/bossDeath_0.png</key>
+            <key type="filename">../images/boss/bossDeath_1.png</key>
+            <key type="filename">../images/boss/bossDeath_2.png</key>
+            <key type="filename">../images/boss/bossDeath_3.png</key>
+            <key type="filename">../images/boss/bossDeath_4.png</key>
+            <key type="filename">../images/boss/bossDeath_5.png</key>
+            <key type="filename">../images/boss/bossDeath_6.png</key>
+            <key type="filename">../images/boss/bossDeath_7.png</key>
+            <key type="filename">../images/boss/bossDeath_8.png</key>
+            <key type="filename">../images/boss/bossDeath_9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,50,63,100</rect>
+                <key>scale9Paddings</key>
+                <rect>32,50,63,100</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/boss/bossFlight_0.png</key>
+            <key type="filename">../images/boss/bossFlight_1.png</key>
+            <key type="filename">../images/boss/bossFlight_2.png</key>
+            <key type="filename">../images/boss/bossFlight_3.png</key>
+            <key type="filename">../images/boss/bossFlight_4.png</key>
+            <key type="filename">../images/boss/bossFlight_5.png</key>
+            <key type="filename">../images/boss/bossFlight_6.png</key>
+            <key type="filename">../images/boss/bossFlight_7.png</key>
+            <key type="filename">../images/boss/bossFlight_8.png</key>
+            <key type="filename">../images/boss/bossFlight_9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>35,50,70,100</rect>
+                <key>scale9Paddings</key>
+                <rect>35,50,70,100</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/boss/bossHealthBar.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>156,5,312,9</rect>
+                <key>scale9Paddings</key>
+                <rect>156,5,312,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/boss/bossHealthDotLeft.png</key>
+            <key type="filename">../images/boss/bossHealthDotRight.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>7,3,13,6</rect>
+                <key>scale9Paddings</key>
+                <rect>7,3,13,6</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/boss/bossHealthDotMid.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,3,15,6</rect>
+                <key>scale9Paddings</key>
+                <rect>8,3,15,6</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/boss/bossMissile_0.png</key>
+            <key type="filename">../images/boss/bossMissile_1.png</key>
+            <key type="filename">../images/boss/bossMissile_2.png</key>
+            <key type="filename">../images/boss/bossMissile_3.png</key>
+            <key type="filename">../images/boss/bossMissile_4.png</key>
+            <key type="filename">../images/boss/bossMissile_5.png</key>
+            <key type="filename">../images/boss/bossMissile_6.png</key>
+            <key type="filename">../images/boss/bossMissile_7.png</key>
+            <key type="filename">../images/boss/bossMissile_8.png</key>
+            <key type="filename">../images/boss/bossMissile_9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>22,8,43,15</rect>
+                <key>scale9Paddings</key>
+                <rect>22,8,43,15</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/btnExit.png</key>
+            <key type="filename">../images/btnMenu.png</key>
+            <key type="filename">../images/btnStart.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>51,15,101,30</rect>
+                <key>scale9Paddings</key>
+                <rect>51,15,101,30</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/btnInfo.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9Paddings</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/btnMusicOff.png</key>
+            <key type="filename">../images/btnMusicOn.png</key>
+            <key type="filename">../images/btnSoundOff.png</key>
+            <key type="filename">../images/btnSoundOn.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,8,15,15</rect>
+                <key>scale9Paddings</key>
+                <rect>8,8,15,15</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/enemyBullet.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>6,3,13,5</rect>
+                <key>scale9Paddings</key>
+                <rect>6,3,13,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/placeholder.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -248,8 +457,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../../Comp397-W2020-Lesson10A/Assets/textures/restartButton.png</key>
-            <key type="filename">../../../Comp397-W2020-Lesson10A/Assets/textures/startButton.png</key>
+            <key type="filename">../images/player/playerBullet.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -258,23 +466,214 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>38,13,75,25</rect>
+                <rect>6,3,11,5</rect>
                 <key>scale9Paddings</key>
-                <rect>38,13,75,25</rect>
+                <rect>6,3,11,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/player/playerDeath_0.png</key>
+            <key type="filename">../images/player/playerDeath_1.png</key>
+            <key type="filename">../images/player/playerDeath_2.png</key>
+            <key type="filename">../images/player/playerDeath_3.png</key>
+            <key type="filename">../images/player/playerDeath_4.png</key>
+            <key type="filename">../images/player/playerDeath_5.png</key>
+            <key type="filename">../images/player/playerDeath_6.png</key>
+            <key type="filename">../images/player/playerDeath_7.png</key>
+            <key type="filename">../images/player/playerDeath_8.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>13,22,25,44</rect>
+                <key>scale9Paddings</key>
+                <rect>13,22,25,44</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/player/playerFull_0.png</key>
+            <key type="filename">../images/player/playerFull_1.png</key>
+            <key type="filename">../images/player/playerFull_2.png</key>
+            <key type="filename">../images/player/playerFull_3.png</key>
+            <key type="filename">../images/player/playerFull_4.png</key>
+            <key type="filename">../images/player/playerFull_5.png</key>
+            <key type="filename">../images/player/playerFull_6.png</key>
+            <key type="filename">../images/player/playerFull_7.png</key>
+            <key type="filename">../images/player/playerFull_8.png</key>
+            <key type="filename">../images/player/playerFull_9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>13,13,27,25</rect>
+                <key>scale9Paddings</key>
+                <rect>13,13,27,25</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/player/playerHalf_0.png</key>
+            <key type="filename">../images/player/playerHalf_1.png</key>
+            <key type="filename">../images/player/playerHalf_2.png</key>
+            <key type="filename">../images/player/playerHalf_3.png</key>
+            <key type="filename">../images/player/playerHalf_4.png</key>
+            <key type="filename">../images/player/playerHalf_5.png</key>
+            <key type="filename">../images/player/playerHalf_6.png</key>
+            <key type="filename">../images/player/playerHalf_7.png</key>
+            <key type="filename">../images/player/playerHalf_8.png</key>
+            <key type="filename">../images/player/playerHalf_9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,13,33,25</rect>
+                <key>scale9Paddings</key>
+                <rect>16,13,33,25</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/player/playerHealthBar.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>49,9,97,17</rect>
+                <key>scale9Paddings</key>
+                <rect>49,9,97,17</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/player/playerHealthDot.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>3,7,7,13</rect>
+                <key>scale9Paddings</key>
+                <rect>3,7,7,13</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../../Comp397-W2020-Lesson10A/Assets/textures/plane1.png</filename>
-            <filename>../../../Comp397-W2020-Lesson10A/Assets/textures/plane2.png</filename>
-            <filename>../../../Comp397-W2020-Lesson10A/Assets/textures/plane3.png</filename>
-            <filename>../../../Comp397-W2020-Lesson10A/Assets/textures/island.png</filename>
-            <filename>../../../Comp397-W2020-Lesson10A/Assets/textures/bullet.png</filename>
-            <filename>../../../Comp397-W2020-Lesson10A/Assets/textures/startButton.png</filename>
-            <filename>../../../Comp397-W2020-Lesson10A/Assets/textures/restartButton.png</filename>
-            <filename>../../../Comp397-W2020-Lesson10A/Assets/textures/cloud.png</filename>
+            <filename>../images/Enemy.png</filename>
+            <filename>../images/btnExit.png</filename>
+            <filename>../images/btnInfo.png</filename>
+            <filename>../images/btnMenu.png</filename>
+            <filename>../images/btnMusicOff.png</filename>
+            <filename>../images/btnMusicOn.png</filename>
+            <filename>../images/btnSoundOff.png</filename>
+            <filename>../images/btnSoundOn.png</filename>
+            <filename>../images/btnStart.png</filename>
+            <filename>../images/enemyBullet.png</filename>
+            <filename>../images/placeholder.png</filename>
+            <filename>../images/player/playerBullet.png</filename>
+            <filename>../images/player/playerDeath_0.png</filename>
+            <filename>../images/player/playerDeath_1.png</filename>
+            <filename>../images/player/playerDeath_2.png</filename>
+            <filename>../images/player/playerDeath_3.png</filename>
+            <filename>../images/player/playerDeath_4.png</filename>
+            <filename>../images/player/playerDeath_5.png</filename>
+            <filename>../images/player/playerDeath_6.png</filename>
+            <filename>../images/player/playerDeath_7.png</filename>
+            <filename>../images/player/playerDeath_8.png</filename>
+            <filename>../images/player/playerFull_0.png</filename>
+            <filename>../images/player/playerFull_1.png</filename>
+            <filename>../images/player/playerFull_2.png</filename>
+            <filename>../images/player/playerFull_3.png</filename>
+            <filename>../images/player/playerFull_4.png</filename>
+            <filename>../images/player/playerFull_5.png</filename>
+            <filename>../images/player/playerFull_6.png</filename>
+            <filename>../images/player/playerFull_7.png</filename>
+            <filename>../images/player/playerFull_8.png</filename>
+            <filename>../images/player/playerFull_9.png</filename>
+            <filename>../images/player/playerHalf_0.png</filename>
+            <filename>../images/player/playerHalf_1.png</filename>
+            <filename>../images/player/playerHalf_2.png</filename>
+            <filename>../images/player/playerHalf_3.png</filename>
+            <filename>../images/player/playerHalf_4.png</filename>
+            <filename>../images/player/playerHalf_5.png</filename>
+            <filename>../images/player/playerHalf_6.png</filename>
+            <filename>../images/player/playerHalf_7.png</filename>
+            <filename>../images/player/playerHalf_8.png</filename>
+            <filename>../images/player/playerHalf_9.png</filename>
+            <filename>../images/player/playerHealthBar.png</filename>
+            <filename>../images/player/playerHealthDot.png</filename>
+            <filename>../images/boss/bossAttack1_0.png</filename>
+            <filename>../images/boss/bossAttack1_1.png</filename>
+            <filename>../images/boss/bossAttack1_2.png</filename>
+            <filename>../images/boss/bossAttack1_3.png</filename>
+            <filename>../images/boss/bossAttack1_4.png</filename>
+            <filename>../images/boss/bossAttack1_5.png</filename>
+            <filename>../images/boss/bossAttack1_6.png</filename>
+            <filename>../images/boss/bossAttack1_7.png</filename>
+            <filename>../images/boss/bossAttack1_8.png</filename>
+            <filename>../images/boss/bossAttack1_9.png</filename>
+            <filename>../images/boss/bossAttack2_0.png</filename>
+            <filename>../images/boss/bossAttack2_1.png</filename>
+            <filename>../images/boss/bossAttack2_2.png</filename>
+            <filename>../images/boss/bossAttack2_3.png</filename>
+            <filename>../images/boss/bossAttack2_4.png</filename>
+            <filename>../images/boss/bossAttack2_5.png</filename>
+            <filename>../images/boss/bossAttack2_6.png</filename>
+            <filename>../images/boss/bossAttack2_7.png</filename>
+            <filename>../images/boss/bossAttack2_8.png</filename>
+            <filename>../images/boss/bossAttack2_9.png</filename>
+            <filename>../images/boss/bossBullet.png</filename>
+            <filename>../images/boss/bossDeath_0.png</filename>
+            <filename>../images/boss/bossDeath_1.png</filename>
+            <filename>../images/boss/bossDeath_2.png</filename>
+            <filename>../images/boss/bossDeath_3.png</filename>
+            <filename>../images/boss/bossDeath_4.png</filename>
+            <filename>../images/boss/bossDeath_5.png</filename>
+            <filename>../images/boss/bossDeath_6.png</filename>
+            <filename>../images/boss/bossDeath_7.png</filename>
+            <filename>../images/boss/bossDeath_8.png</filename>
+            <filename>../images/boss/bossDeath_9.png</filename>
+            <filename>../images/boss/bossFlight_0.png</filename>
+            <filename>../images/boss/bossFlight_1.png</filename>
+            <filename>../images/boss/bossFlight_2.png</filename>
+            <filename>../images/boss/bossFlight_3.png</filename>
+            <filename>../images/boss/bossFlight_4.png</filename>
+            <filename>../images/boss/bossFlight_5.png</filename>
+            <filename>../images/boss/bossFlight_6.png</filename>
+            <filename>../images/boss/bossFlight_7.png</filename>
+            <filename>../images/boss/bossFlight_8.png</filename>
+            <filename>../images/boss/bossFlight_9.png</filename>
+            <filename>../images/boss/bossHealthBar.png</filename>
+            <filename>../images/boss/bossHealthDotLeft.png</filename>
+            <filename>../images/boss/bossHealthDotMid.png</filename>
+            <filename>../images/boss/bossHealthDotRight.png</filename>
+            <filename>../images/boss/bossMissile_0.png</filename>
+            <filename>../images/boss/bossMissile_1.png</filename>
+            <filename>../images/boss/bossMissile_2.png</filename>
+            <filename>../images/boss/bossMissile_3.png</filename>
+            <filename>../images/boss/bossMissile_4.png</filename>
+            <filename>../images/boss/bossMissile_5.png</filename>
+            <filename>../images/boss/bossMissile_6.png</filename>
+            <filename>../images/boss/bossMissile_7.png</filename>
+            <filename>../images/boss/bossMissile_8.png</filename>
+            <filename>../images/boss/bossMissile_9.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
@@ -298,15 +697,10 @@
         <filename></filename>
         <key>exporterProperties</key>
         <map type="ExporterProperties">
-            <key>SDL::bool-property</key>
+            <key>easeljs::framerate</key>
             <struct type="ExporterProperty">
                 <key>value</key>
-                <string>false</string>
-            </struct>
-            <key>SDL::string-property</key>
-            <struct type="ExporterProperty">
-                <key>value</key>
-                <string>hello world</string>
+                <string>20</string>
             </struct>
         </map>
     </struct>

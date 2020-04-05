@@ -7,7 +7,7 @@ module objects {
 
         // CONSTRUCTOR
         constructor() {
-            super(config.Game.TEXTURE_ATLAS, "bulletPlayer", new Vector2(), true);
+            super(config.Game.TEXTURE_ATLAS, "playerBullet", new Vector2(), true);
 
             this.Start();
         }

@@ -18,7 +18,7 @@ var objects;
         __extends(Player, _super);
         // CONSTRUCTOR
         function Player() {
-            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "planeFull", 0, 0, true) || this;
+            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "playerFull", 0, 0, true) || this;
             _this.Start();
             return _this;
         }

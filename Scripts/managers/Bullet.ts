@@ -38,7 +38,6 @@ module managers {
             let bullet = this._bulletPool.shift();
 
             bullet.isActive = true;
-            bullet.gotoAndPlay("bulletPlayerStart");
 
             // push the bullet to the back of the pool
             this._bulletPool.push(bullet);
