@@ -45,7 +45,7 @@ module managers {
             this._score = this.START_SCORE;
 
             // Everytime that this is class created, reset the global variables
-            config.Game.LIVES = this.PlayerLives;
+            config.Game.PLAYER_LIVES = this.PlayerLives;
 
             // Initialize the player health bar
             this._playerHealthTable = new objects.Image("playerHealthBar");
@@ -106,7 +106,7 @@ module managers {
         public DamagePlayer(): void {
             if (this._playerLives > 0) {
                 this._playerLives--;
-                config.Game.LIVES = this._playerLives;
+                config.Game.PLAYER_LIVES = this._playerLives;
 
                 this._playerHealthDots[this._playerLives].alpha = 0;
             }
@@ -126,8 +126,8 @@ module managers {
             config.Game.SCORE = this._score;
 
             this._scoreLabel.text = this._score.toLocaleString("en-US", { maximumFractionDigits: 0 });
-            if (config.Game.HIGH_SCORE < value) {
-                config.Game.HIGH_SCORE = value;
+            if (config.Game.HIGH_SCORE < this._score) {
+                config.Game.HIGH_SCORE = this._score;
             }
         }
     }

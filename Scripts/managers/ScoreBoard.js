@@ -40,7 +40,7 @@ var managers;
             this._bossLives = this.START_BOSS_LIVES;
             this._score = this.START_SCORE;
             // Everytime that this is class created, reset the global variables
-            config.Game.LIVES = this.PlayerLives;
+            config.Game.PLAYER_LIVES = this.PlayerLives;
             // Initialize the player health bar
             this._playerHealthTable = new objects.Image("playerHealthBar");
             this._playerHealthDots = new Array();
@@ -83,7 +83,7 @@ var managers;
         ScoreBoard.prototype.DamagePlayer = function () {
             if (this._playerLives > 0) {
                 this._playerLives--;
-                config.Game.LIVES = this._playerLives;
+                config.Game.PLAYER_LIVES = this._playerLives;
                 this._playerHealthDots[this._playerLives].alpha = 0;
             }
         };
@@ -98,8 +98,8 @@ var managers;
             this._score += value;
             config.Game.SCORE = this._score;
             this._scoreLabel.text = this._score.toLocaleString("en-US", { maximumFractionDigits: 0 });
-            if (config.Game.HIGH_SCORE < value) {
-                config.Game.HIGH_SCORE = value;
+            if (config.Game.HIGH_SCORE < this._score) {
+                config.Game.HIGH_SCORE = this._score;
             }
         };
         return ScoreBoard;

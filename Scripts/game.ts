@@ -158,8 +158,11 @@ let Game = (function() {
             bossBullet: { frames: [20] },
             bossDeath: {
                 frames: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-                next: 30,
-                speed: 0.5
+                next: "bossDeathEnd",
+                speed: 0.05
+            },
+            bossDeathEnd: {
+                frames: 30
             },
             bossFlight: {
                 frames: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
@@ -187,7 +190,11 @@ let Game = (function() {
             playerBullet: { frames: [66] },
             playerDeath: {
                 frames: [67, 68, 69, 70, 71, 72, 73, 74, 75],
-                speed: 0.5
+                next: "playerDeathEnd",
+                speed: 0.05
+            },
+            playerDeathEnd: {
+                frames: 75
             },
             playerFull: {
                 frames: [76, 77, 78, 79, 80, 81, 82, 83, 84, 85],

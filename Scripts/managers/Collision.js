@@ -67,7 +67,6 @@ var managers;
                     config.Game.SCORE_BOARD.DamagePlayer();
                     // Check for the player lives
                     if (config.Game.SCORE_BOARD.PlayerLives <= 0) {
-                        config.Game.SCORE_BOARD.AddScore(config.Game.SCORE_BOSS_VALUE);
                         config.Game.SCENE_STATE = scenes.State.END;
                     }
                     break;
@@ -76,6 +75,7 @@ var managers;
                     config.Game.SCORE_BOARD.DamageBoss();
                     // Check for the boss lives
                     if (config.Game.SCORE_BOARD.BossLives <= 0) {
+                        config.Game.SCORE_BOARD.AddScore(config.Game.SCORE_BOSS_VALUE);
                         config.Game.SCENE_STATE = scenes.State.END;
                     }
                     break;
