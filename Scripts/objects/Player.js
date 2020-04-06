@@ -97,6 +97,7 @@ var objects;
         Player.prototype.FireBullets = function () {
             var bullet = config.Game.BULLET_MANAGER.GetPlayerBullet();
             bullet.position = this._bulletSpawn;
+            config.Game.SOUND_MANAGER.PlaySound("playerBullet", 0.015);
         };
         return Player;
     }(objects.GameObject));

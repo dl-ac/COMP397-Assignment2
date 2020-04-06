@@ -94,6 +94,7 @@ module objects {
         public FireBullets(): void {
             let bullet = config.Game.BULLET_MANAGER.GetPlayerBullet();
             bullet.position = this._bulletSpawn;
+            config.Game.SOUND_MANAGER.PlaySound("playerBullet", 0.015);
         }
     }
 }

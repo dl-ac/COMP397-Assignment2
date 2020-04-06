@@ -38,12 +38,14 @@ var scenes;
                 resultText = "You win!";
                 resultTextSize = "80px";
                 resultScale = 2;
+                config.Game.SOUND_MANAGER.PlaySound("bossExplosion", 0.5, 5);
             }
             else {
                 this._imageName = "playerDeath";
                 resultText = "You lose!";
                 resultTextSize = "60px";
                 resultScale = 3;
+                config.Game.SOUND_MANAGER.PlaySound("playerExplosion", 0.5, 3);
             }
             this._explosion = new objects.Image(this._imageName, config.Game.SCREEN_WIDTH * 0.5, config.Game.SCREEN_HEIGHT * 0.5, true);
             this._explosion.scaleX = resultScale;

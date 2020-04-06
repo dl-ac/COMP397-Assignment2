@@ -39,5 +39,11 @@ module managers {
             scene.addChild(this._buttonMusic);
             scene.addChild(this._buttonSound);
         }
+
+        public PlaySound(soundName: string, volume: number, loop: number = 0) {
+            if (this._sound) {
+                createjs.Sound.play(soundName, { loop: loop, volume: volume });
+            }
+        }
     }
 }

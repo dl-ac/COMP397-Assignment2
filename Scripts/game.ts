@@ -14,7 +14,6 @@ let Game = (function() {
     let backgroundAtlas: createjs.SpriteSheet;
 
     let soundManager: managers.Sound;
-    let bgMusic: createjs.AbstractSoundInstance;
 
     let assetManifest = [
         { id: "bgMenu", src: "./Assets/images/bgMenu.png" },
@@ -23,9 +22,15 @@ let Game = (function() {
 
         // Game sounds
         { id: "bgSound", src: "./Assets/audio/background.mp3" },
-        { id: "engine", src: "./Assets/audio/engine.ogg" },
-        { id: "yay", src: "./Assets/audio/yay.ogg" },
-        { id: "thunder", src: "./Assets/audio/thunder.ogg" }
+        { id: "bossBullet", src: "./Assets/audio/bossBullet.wav" },
+        { id: "bossExplosion", src: "./Assets/audio/bossExplosion.wav" },
+        { id: "bossHit", src: "./Assets/audio/bossHit.wav" },
+        { id: "bossIncoming", src: "./Assets/audio/bossIncoming.wav" },
+        { id: "bossMissile", src: "./Assets/audio/bossMissile.wav" },
+        { id: "enemyExplosion", src: "./Assets/audio/enemyExplosion.wav" },
+        { id: "playerBullet", src: "./Assets/audio/playerBullet.wav" },
+        { id: "playerHit", src: "./Assets/audio/playerHit.wav" },
+        { id: "playerExplosion", src: "./Assets/audio/playerExplosion.wav" }
     ];
 
     let itemSpriteData = {
@@ -146,12 +151,12 @@ let Game = (function() {
             bossAttack2Begin: {
                 frames: [10, 11, 12, 13],
                 next: "bossAttack2Mid",
-                speed: 0.25
+                speed: 0.05
             },
             bossAttack2Mid: {
                 frames: [14, 14, 15, 15],
                 next: "bossAttack2End",
-                speed: 0.5
+                speed: 0.2
             },
             bossAttack2End: {
                 frames: [16, 17, 18, 19],

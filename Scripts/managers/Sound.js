@@ -29,6 +29,12 @@ var managers;
             scene.addChild(this._buttonMusic);
             scene.addChild(this._buttonSound);
         };
+        Sound.prototype.PlaySound = function (soundName, volume, loop) {
+            if (loop === void 0) { loop = 0; }
+            if (this._sound) {
+                createjs.Sound.play(soundName, { loop: loop, volume: volume });
+            }
+        };
         return Sound;
     }());
     managers.Sound = Sound;

@@ -62,8 +62,7 @@ var managers;
                     break;
                 // Bullet or enemy colliding with a player
                 case enums.GameObjectType.PLAYER:
-                    var thunderSound = createjs.Sound.play("thunder");
-                    thunderSound.volume = 0.2;
+                    config.Game.SOUND_MANAGER.PlaySound("playerHit", 0.5);
                     config.Game.SCORE_BOARD.DamagePlayer();
                     // Check for the player lives
                     if (config.Game.SCORE_BOARD.PlayerLives <= 0) {
@@ -72,6 +71,7 @@ var managers;
                     break;
                 // Player bullet colliding with a boss
                 case enums.GameObjectType.BOSS:
+                    config.Game.SOUND_MANAGER.PlaySound("bossHit", 0.1);
                     config.Game.SCORE_BOARD.DamageBoss();
                     // Check for the boss lives
                     if (config.Game.SCORE_BOARD.BossLives <= 0) {
@@ -81,6 +81,7 @@ var managers;
                     break;
                 // Player bullet colliding with a enemy
                 case enums.GameObjectType.ENEMY:
+                    config.Game.SOUND_MANAGER.PlaySound("enemyExplosion", 0.2);
                     object2.Reset();
                     config.Game.SCORE_BOARD.AddScore(config.Game.SCORE_ENEMY_VALUE);
                     break;

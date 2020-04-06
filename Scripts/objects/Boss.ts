@@ -94,13 +94,16 @@ module objects {
                     break;
 
                 case "bossAttack2Begin":
-                    // Do nothing during the attack beginning
+                    if (this._fireMissileStatus == 0) {
+                        config.Game.SOUND_MANAGER.PlaySound("bossMissile", 0.05);
+                        this._fireMissileStatus = 1;
+                    }
                     break;
 
                 case "bossAttack2Mid":
-                    if (this._fireMissileStatus == 0) {
+                    if (this._fireMissileStatus == 1) {
                         this.FireRocket();
-                        this._fireMissileStatus = 1;
+                        this._fireMissileStatus = 2;
                     }
                     break;
 
@@ -161,6 +164,8 @@ module objects {
             // Second bullet
             bullet = config.Game.BULLET_MANAGER.GetEnemyBullet("bossBullet", -14, 0);
             bullet.position = this._bulletSpawn2;
+
+            config.Game.SOUND_MANAGER.PlaySound("bossBullet", 0.01);
         }
 
         public FireRocket(): void {
