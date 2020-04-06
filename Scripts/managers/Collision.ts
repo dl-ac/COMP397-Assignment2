@@ -63,8 +63,7 @@ module managers {
             switch (object2.type) {
                 // Player colliding with a Crystal
                 case enums.GameObjectType.CRYSTAL:
-                    let yaySound = createjs.Sound.play("yay");
-                    yaySound.volume = 0.2;
+                    config.Game.SOUND_MANAGER.PlaySound("crystal", 0.2);
                     config.Game.SCORE_BOARD.AddScore(config.Game.SCORE_CRYSTAL_VALUE);
                     break;
 
@@ -94,7 +93,6 @@ module managers {
                 // Player bullet colliding with a enemy
                 case enums.GameObjectType.ENEMY:
                     config.Game.SOUND_MANAGER.PlaySound("enemyExplosion", 0.2);
-                    object2.Reset();
                     config.Game.SCORE_BOARD.AddScore(config.Game.SCORE_ENEMY_VALUE);
                     break;
             }

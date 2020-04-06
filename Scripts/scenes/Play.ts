@@ -10,6 +10,7 @@ module scenes {
         private _bulletManager: managers.Bullet;
         private _keyboardManager: managers.Keyboard;
         private _enemyManager: managers.Enemy;
+        private _crystalManager: managers.Crystal;
         private _lastEnemiesTick: number;
         private _nextEnemies: number;
 
@@ -23,6 +24,16 @@ module scenes {
         }
 
         // PRIVATE METHODS
+        private _createCrystal(position: objects.Vector2): void {
+            let chances = util.Mathf.RandomRangeInt(1, 15);
+
+            // Chances are 1 to 10 to create a crystal when an enemy is killed
+            if (chances > 10) {
+                let crystal = this._crystalManager.GetCrystal();
+                crystal.position = position;
+                console.log("Crystal Created" + position);
+            }
+        }
 
         // PUBLIC METHODS
 
@@ -43,6 +54,8 @@ module scenes {
 
             this._enemyManager = new managers.Enemy();
             config.Game.ENEMY_MANAGER = this._enemyManager;
+
+            this._crystalManager = new managers.Crystal();
 
             // Get a random boss apperence
             this._bossAppear = util.Mathf.RandomRangeInt(-280, -360);
@@ -67,16 +80,25 @@ module scenes {
                 if (this._background.position.x <= this._bossAppear) {
                     this._boss.MakeActive();
                     this._scoreBoard.GetBossGameObjects().forEach(go => this.addChild(go));
+                    config.Game.SOUND_MANAGER.PlaySound("bossIncoming", 0.5);
                 }
             } else {
                 this._boss.Update();
             }
 
-            // Manage the bullets
+            // Update all the managers
             this._bulletManager.Update();
-
-            // Manage the enemies
             this._enemyManager.Update();
+            this._crystalManager.Update();
+
+            // Check the player with the crystals
+            this._crystalManager.Crystals.forEach(crystal => {
+                if (crystal.isActive) {
+                    if (managers.Collision.squaredRadiusCheck(this._player, crystal)) {
+                        crystal.Reset();
+                    }
+                }
+            });
 
             // Check the player with the enemies, store actives to check later with the bullets
             let activeEnemies: Array<objects.Enemy> = new Array<objects.Enemy>();
@@ -100,6 +122,7 @@ module scenes {
                             // Check the player bullet against each enemy in screen
                             activeEnemies.forEach(enemy => {
                                 if (managers.Collision.squaredRadiusCheck(bullet, enemy)) {
+                                    this._createCrystal(enemy.position);
                                     enemy.Reset();
                                     bullet.Reset();
                                 }
@@ -134,6 +157,8 @@ module scenes {
             this._enemyManager.AddEnemiesToScene(this);
 
             this._bulletManager.AddBulletsToScene(this);
+
+            this._crystalManager.AddCrystalsToScene(this);
 
             this.addChild(this._boss);
 

@@ -19,13 +19,13 @@ var objects;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Crystal() {
-            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "placeholder", new objects.Vector2(), true) || this;
+            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "crystal", new objects.Vector2(), true) || this;
             _this.Start();
             return _this;
         }
         // PRIVATE METHODS
         Crystal.prototype._checkBounds = function () {
-            if (this.y >= config.Game.SCREEN_HEIGHT + this.height) {
+            if (this.x < -this.width) {
                 this.Reset();
             }
         };
@@ -35,17 +35,19 @@ var objects;
         // PUBLIC METHODS
         Crystal.prototype.Start = function () {
             this.type = enums.GameObjectType.CRYSTAL;
-            this._horizontalSpeed = 5; // 5 px per frame
+            this._horizontalSpeed = -5; // 5 px per frame
             this.velocity = new objects.Vector2(this._horizontalSpeed, 0);
             this.Reset();
         };
         Crystal.prototype.Update = function () {
-            this._move();
-            this._checkBounds();
+            if (this.isActive) {
+                this._move();
+                this._checkBounds();
+            }
         };
         Crystal.prototype.Reset = function () {
-            var randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
-            this.position = new objects.Vector2(randomX, -this.height);
+            this.position = new objects.Vector2(-2000, -2000);
+            this.isActive = false;
         };
         return Crystal;
     }(objects.GameObject));

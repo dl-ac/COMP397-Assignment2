@@ -7,7 +7,7 @@ module objects {
 
         // CONSTRUCTOR
         constructor() {
-            super(config.Game.TEXTURE_ATLAS, "placeholder", new Vector2(), true);
+            super(config.Game.TEXTURE_ATLAS, "crystal", new Vector2(), true);
 
             this.Start();
         }
@@ -15,7 +15,7 @@ module objects {
         // PRIVATE METHODS
 
         protected _checkBounds(): void {
-            if (this.y >= config.Game.SCREEN_HEIGHT + this.height) {
+            if (this.x < -this.width) {
                 this.Reset();
             }
         }
@@ -27,19 +27,21 @@ module objects {
         // PUBLIC METHODS
         public Start(): void {
             this.type = enums.GameObjectType.CRYSTAL;
-            this._horizontalSpeed = 5; // 5 px per frame
+            this._horizontalSpeed = -5; // 5 px per frame
             this.velocity = new Vector2(this._horizontalSpeed, 0);
             this.Reset();
         }
 
         public Update(): void {
-            this._move();
-            this._checkBounds();
+            if (this.isActive) {
+                this._move();
+                this._checkBounds();
+            }
         }
 
         public Reset(): void {
-            let randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
-            this.position = new Vector2(randomX, -this.height);
+            this.position = new Vector2(-2000, -2000);
+            this.isActive = false;
         }
     }
 }

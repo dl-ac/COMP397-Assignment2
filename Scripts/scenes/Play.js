@@ -24,6 +24,15 @@ var scenes;
             return _this;
         }
         // PRIVATE METHODS
+        Play.prototype._createCrystal = function (position) {
+            var chances = util.Mathf.RandomRangeInt(1, 15);
+            // Chances are 1 to 10 to create a crystal when an enemy is killed
+            if (chances > 10) {
+                var crystal = this._crystalManager.GetCrystal();
+                crystal.position = position;
+                console.log("Crystal Created" + position);
+            }
+        };
         // PUBLIC METHODS
         //initialize and instatiate
         Play.prototype.Start = function () {
@@ -38,6 +47,7 @@ var scenes;
             config.Game.KEYBOARD_MANAGER = this._keyboardManager;
             this._enemyManager = new managers.Enemy();
             config.Game.ENEMY_MANAGER = this._enemyManager;
+            this._crystalManager = new managers.Crystal();
             // Get a random boss apperence
             this._bossAppear = util.Mathf.RandomRangeInt(-280, -360);
             // Set the last tick to 0 and the next enemies timer
@@ -57,15 +67,24 @@ var scenes;
                 if (this._background.position.x <= this._bossAppear) {
                     this._boss.MakeActive();
                     this._scoreBoard.GetBossGameObjects().forEach(function (go) { return _this.addChild(go); });
+                    config.Game.SOUND_MANAGER.PlaySound("bossIncoming", 0.5);
                 }
             }
             else {
                 this._boss.Update();
             }
-            // Manage the bullets
+            // Update all the managers
             this._bulletManager.Update();
-            // Manage the enemies
             this._enemyManager.Update();
+            this._crystalManager.Update();
+            // Check the player with the crystals
+            this._crystalManager.Crystals.forEach(function (crystal) {
+                if (crystal.isActive) {
+                    if (managers.Collision.squaredRadiusCheck(_this._player, crystal)) {
+                        crystal.Reset();
+                    }
+                }
+            });
             // Check the player with the enemies, store actives to check later with the bullets
             var activeEnemies = new Array();
             this._enemyManager.Enemies.forEach(function (enemy) {
@@ -88,6 +107,7 @@ var scenes;
                             // Check the player bullet against each enemy in screen
                             activeEnemies.forEach(function (enemy) {
                                 if (managers.Collision.squaredRadiusCheck(bullet, enemy)) {
+                                    _this._createCrystal(enemy.position);
                                     enemy.Reset();
                                     bullet.Reset();
                                 }
@@ -118,6 +138,7 @@ var scenes;
             this.addChild(this._player);
             this._enemyManager.AddEnemiesToScene(this);
             this._bulletManager.AddBulletsToScene(this);
+            this._crystalManager.AddCrystalsToScene(this);
             this.addChild(this._boss);
             this._scoreBoard.GetPlayGameObjects().forEach(function (go) { return _this.addChild(go); });
         };
