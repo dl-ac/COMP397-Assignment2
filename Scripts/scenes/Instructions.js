@@ -33,7 +33,7 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Instructions.prototype.Start = function () {
-            var rulesText = "Moviments: " +
+            var rulesText = "Movements: " +
                 "\n- Keys W A S D - Player Movement" +
                 "\n- Keys Up Left Down Right - Player Movement" +
                 "\n- Spacebar - Player shoots" +

@@ -27,7 +27,7 @@ module scenes {
         // PUBLIC METHODS
         public Start(): void {
             let rulesText =
-                "Moviments: " +
+                "Movements: " +
                 "\n- Keys W A S D - Player Movement" +
                 "\n- Keys Up Left Down Right - Player Movement" +
                 "\n- Spacebar - Player shoots" +

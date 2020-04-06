@@ -427,6 +427,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../images/crystal.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,6,8,13</rect>
+                <key>scale9Paddings</key>
+                <rect>4,6,8,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../images/enemyBullet.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -674,6 +689,7 @@
             <filename>../images/boss/bossMissile_7.png</filename>
             <filename>../images/boss/bossMissile_8.png</filename>
             <filename>../images/boss/bossMissile_9.png</filename>
+            <filename>../images/crystal.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
