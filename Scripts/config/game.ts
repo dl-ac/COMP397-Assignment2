@@ -11,14 +11,14 @@ module config {
         public static SCORE: number = 0;
         public static HIGH_SCORE: number = 0;
         public static SCORE_BOARD: managers.ScoreBoard;
+        public static SOUND_MANAGER: managers.Sound;
         public static BULLET_MANAGER: managers.Bullet;
         public static KEYBOARD_MANAGER: managers.Keyboard;
         public static ENEMY_MANAGER: managers.Enemy;
         public static TEXTURE_ATLAS: createjs.SpriteSheet;
         public static BACKGROUND_ATLAS: createjs.SpriteSheet;
         public static TEXT_COLOR: string = "#e3f5f4";
-        public static GAME_MUSIC: boolean;
-        public static GAME_SOUND: boolean;
+        public static BACKGROUND_SOUND: createjs.AbstractSoundInstance;
 
         // Score values
         public static SCORE_ENEMY_VALUE: number = 10;

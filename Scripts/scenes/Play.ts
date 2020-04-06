@@ -48,7 +48,7 @@ module scenes {
             this._bossAppear = util.Mathf.RandomRangeInt(-280, -360);
 
             // Set the last tick to 0 and the next enemies timer
-            this._lastEnemiesTick = 0;
+            this._lastEnemiesTick = createjs.Ticker.getTicks();
             this._nextEnemies = 6 * config.Game.FPS;
 
             // Create the initial enemies

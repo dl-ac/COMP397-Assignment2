@@ -28,6 +28,8 @@ module scenes {
         public Start(): void {
             let resultText: string;
             let resultTextSize: string;
+            let resultScale: number;
+
             //instantiate a new Text object
             this._gameOverLabel = new objects.Label(
                 "Game Over",
@@ -44,10 +46,12 @@ module scenes {
                 this._imageName = "bossDeath";
                 resultText = "You win!";
                 resultTextSize = "80px";
+                resultScale = 2;
             } else {
                 this._imageName = "playerDeath";
                 resultText = "You lose!";
                 resultTextSize = "60px";
+                resultScale = 3;
             }
             this._explosion = new objects.Image(
                 this._imageName,
@@ -55,8 +59,8 @@ module scenes {
                 config.Game.SCREEN_HEIGHT * 0.5,
                 true
             );
-            this._explosion.scaleX = 3;
-            this._explosion.scaleY = 3;
+            this._explosion.scaleX = resultScale;
+            this._explosion.scaleY = resultScale;
 
             // Result Label
             this._resultLabel = new objects.Label(

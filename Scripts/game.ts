@@ -13,13 +13,16 @@ let Game = (function() {
     let textureAtlas: createjs.SpriteSheet;
     let backgroundAtlas: createjs.SpriteSheet;
 
-    let buttonMusic: objects.Button;
-    let buttonSound: objects.Button;
+    let soundManager: managers.Sound;
+    let bgMusic: createjs.AbstractSoundInstance;
 
     let assetManifest = [
         { id: "bgMenu", src: "./Assets/images/bgMenu.png" },
         { id: "bgPlay", src: "./Assets/images/bgPlay.png" },
         { id: "atlas", src: "./Assets/sprites/atlas.png" },
+
+        // Game sounds
+        { id: "bgSound", src: "./Assets/audio/background.mp3" },
         { id: "engine", src: "./Assets/audio/engine.ogg" },
         { id: "yay", src: "./Assets/audio/yay.ogg" },
         { id: "thunder", src: "./Assets/audio/thunder.ogg" }
@@ -251,21 +254,8 @@ let Game = (function() {
         currentSceneState = scenes.State.NO_SCENE;
         config.Game.SCENE_STATE = scenes.State.START;
 
-        buttonMusic = new objects.Button("buttonMusicOn", config.Game.SCREEN_WIDTH - 55, 20, true);
-        buttonSound = new objects.Button("buttonSoundOn", config.Game.SCREEN_WIDTH - 20, 20, true);
-
-        config.Game.GAME_MUSIC = true;
-        config.Game.GAME_SOUND = true;
-
-        buttonMusic.on("click", () => {
-            config.Game.GAME_MUSIC = !config.Game.GAME_MUSIC;
-            buttonMusic.gotoAndStop(`buttonMusic${config.Game.GAME_MUSIC ? "On" : "Off"}`);
-        });
-
-        buttonSound.on("click", () => {
-            config.Game.GAME_SOUND = !config.Game.GAME_SOUND;
-            buttonSound.gotoAndStop(`buttonSound${config.Game.GAME_SOUND ? "On" : "Off"}`);
-        });
+        soundManager = new managers.Sound();
+        config.Game.SOUND_MANAGER = soundManager;
     }
 
     /**
@@ -326,8 +316,7 @@ let Game = (function() {
 
         currentSceneState = config.Game.SCENE_STATE;
         stage.addChild(currentScene);
-        currentScene.addChild(buttonMusic);
-        currentScene.addChild(buttonSound);
+        soundManager.AddObjectsToScene(currentScene);
     }
 
     window.addEventListener("load", Preload);

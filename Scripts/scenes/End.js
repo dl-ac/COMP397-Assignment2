@@ -29,6 +29,7 @@ var scenes;
         End.prototype.Start = function () {
             var resultText;
             var resultTextSize;
+            var resultScale;
             //instantiate a new Text object
             this._gameOverLabel = new objects.Label("Game Over", "80px", "EthnocentricReg", config.Game.TEXT_COLOR, config.Game.SCREEN_WIDTH * 0.5, 120, true);
             // creates the image of explosion
@@ -36,15 +37,17 @@ var scenes;
                 this._imageName = "bossDeath";
                 resultText = "You win!";
                 resultTextSize = "80px";
+                resultScale = 2;
             }
             else {
                 this._imageName = "playerDeath";
                 resultText = "You lose!";
                 resultTextSize = "60px";
+                resultScale = 3;
             }
             this._explosion = new objects.Image(this._imageName, config.Game.SCREEN_WIDTH * 0.5, config.Game.SCREEN_HEIGHT * 0.5, true);
-            this._explosion.scaleX = 3;
-            this._explosion.scaleY = 3;
+            this._explosion.scaleX = resultScale;
+            this._explosion.scaleY = resultScale;
             // Result Label
             this._resultLabel = new objects.Label(resultText, resultTextSize, "EthnocentricReg", config.Game.TEXT_COLOR, config.Game.SCREEN_WIDTH * 0.5, config.Game.SCREEN_HEIGHT * 0.5, true);
             // Result Label
