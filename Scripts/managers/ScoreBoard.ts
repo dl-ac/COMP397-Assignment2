@@ -1,3 +1,10 @@
+/*
+ * File: managers/Scoreboard.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Manager for Scoreboard, control all the scoreboard functions, Player lives, score and boss lives
+ *
+ * Created: 2020-04-06
+ */
 module managers {
     export class ScoreBoard {
         // Local constants

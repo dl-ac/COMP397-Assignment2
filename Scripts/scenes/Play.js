@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: scenes/Play.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Play scene. Triggered when the player clicks the start button on the main menu
+ *
+ * Created: 2020-04-06
+ */
 var scenes;
 (function (scenes) {
     var Play = /** @class */ (function (_super) {
@@ -30,7 +37,6 @@ var scenes;
             if (chances > 10) {
                 var crystal = this._crystalManager.GetCrystal();
                 crystal.position = position;
-                console.log("Crystal Created" + position);
             }
         };
         // PUBLIC METHODS

@@ -1,7 +1,12 @@
-module enums
-{
-    export enum Keys
-    {
+/*
+ * File: enums/Keys.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Enumerate for Keyboard Keys
+ *
+ * Created: 2020-04-06
+ */
+module enums {
+    export enum Keys {
         // Arrow Keys
         LEFT_ARROW = 37,
         UP_ARROW = 38,
@@ -15,6 +20,6 @@ module enums
         W = 87,
 
         // Space Bar
-        SPACE = 32 
+        SPACE = 32
     }
 }

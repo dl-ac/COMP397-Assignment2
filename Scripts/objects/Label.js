@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: objects/Label.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Class for displaying texts on the screen
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var Label = /** @class */ (function (_super) {

@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: scenes/Instructions.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Instructions scene. Triggered when the player clicks the i button on the main menu
+ *
+ * Created: 2020-04-06
+ */
 var scenes;
 (function (scenes) {
     var Instructions = /** @class */ (function (_super) {

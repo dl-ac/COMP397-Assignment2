@@ -1,3 +1,10 @@
+/*
+ * File: objects/Bullet.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Controls a single bullet. Reset when leaves the screen
+ *
+ * Created: 2020-04-06
+ */
 module objects {
     export class Bullet extends objects.GameObject {
         // PRIVATE INSTANCE MEMBERS
@@ -33,7 +40,7 @@ module objects {
         // PUBLIC METHODS
         public Start(): void {
             this.type = enums.GameObjectType.PLAYER_BULLET;
-            this._horizontalSpeed = 12; // 12 px per frame by deftaul
+            this._horizontalSpeed = 12; // 12 px per frame by default
             this._verticalSpeed = 0; // no vertical speed by default
             this.velocity = new Vector2(this._horizontalSpeed, this._verticalSpeed);
             this.Reset();

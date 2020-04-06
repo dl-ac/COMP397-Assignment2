@@ -1,3 +1,10 @@
+/*
+ * File: objects/Crystal.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Controls a single crystal. Reset when leaves the screen
+ *
+ * Created: 2020-04-06
+ */
 module objects {
     export class Crystal extends GameObject {
         // PRIVATE INSTANCE MEMBERS

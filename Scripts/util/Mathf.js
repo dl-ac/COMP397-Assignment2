@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: util/Mathf.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Math static functions used along the game
+ *
+ * Created: 2020-04-06
+ */
 var util;
 (function (util) {
     var Mathf = /** @class */ (function () {

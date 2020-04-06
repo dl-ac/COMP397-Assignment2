@@ -1,3 +1,10 @@
+/*
+ * File: managers/Crystal.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Manager for crystals, creates a pool and control the utilization during the play
+ *
+ * Created: 2020-04-06
+ */
 module managers {
     export class Crystal {
         // Constants

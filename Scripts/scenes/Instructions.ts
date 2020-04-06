@@ -1,3 +1,10 @@
+/*
+ * File: scenes/Instructions.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Instructions scene. Triggered when the player clicks the i button on the main menu
+ *
+ * Created: 2020-04-06
+ */
 module scenes {
     export class Instructions extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS

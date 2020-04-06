@@ -1,5 +1,13 @@
 "use strict";
-//IIFE - Immediately Invoked Function Expression
+/*
+ * File: util/Mathf.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: IIFE - Immediately Invoked Function Expression
+ *              First code to be executed when the users access the URL
+ *
+ * Created: 2020-04-06
+ */
+//
 //means -> self-executing anonymous function
 var Game = (function () {
     // variable declarations

@@ -1,3 +1,10 @@
+/*
+ * File: objects/Boss.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: All the boss funcitonalities is controlled by this class
+ *
+ * Created: 2020-04-06
+ */
 module objects {
     export class Boss extends GameObject {
         // Local constants

@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: objects/Boss.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: All the boss funcitonalities is controlled by this class
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var Boss = /** @class */ (function (_super) {

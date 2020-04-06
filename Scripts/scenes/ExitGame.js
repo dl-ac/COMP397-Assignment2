@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: scenes/ExitGame.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Exit game scene. Triggered when the player clicks the exit button
+ *
+ * Created: 2020-04-06
+ */
 var scenes;
 (function (scenes) {
     var ExitGame = /** @class */ (function (_super) {

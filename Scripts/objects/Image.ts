@@ -1,3 +1,10 @@
+/*
+ * File: objects/Image.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Class for static images on the screen
+ *
+ * Created: 2020-04-06
+ */
 module objects {
     export class Image extends GameObject {
         // constructor

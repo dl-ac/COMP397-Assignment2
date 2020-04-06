@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: objects/Scene.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Container to hold a specific scene information
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var Scene = /** @class */ (function (_super) {

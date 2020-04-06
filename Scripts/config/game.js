@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: config/Game.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Holds all the program global variables
+ *
+ * Created: 2020-04-06
+ */
 var config;
 (function (config) {
     var Game = /** @class */ (function () {

@@ -1,3 +1,10 @@
+/*
+ * File: managers/Enemy.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Manager for enemies, creates a pool and control the utilization during the play
+ *
+ * Created: 2020-04-06
+ */
 module managers {
     export class Enemy {
         // Constants
@@ -54,18 +61,18 @@ module managers {
             });
         }
 
-        public GetMoviments(moviment: enums.MovimentTypes): Array<objects.EnemyMoviment> {
-            let result: Array<objects.EnemyMoviment> = new Array<objects.EnemyMoviment>();
+        public GetMoviments(moviment: enums.MovimentTypes): Array<objects.EnemyMovement> {
+            let result: Array<objects.EnemyMovement> = new Array<objects.EnemyMovement>();
 
             switch (moviment) {
                 case enums.MovimentTypes.TL_TO_BR:
-                    result.push(new objects.EnemyMoviment(0, new objects.Vector2(-5, 4), 0));
-                    result.push(new objects.EnemyMoviment(206));
+                    result.push(new objects.EnemyMovement(0, new objects.Vector2(-5, 4), 0));
+                    result.push(new objects.EnemyMovement(206));
                     break;
 
                 case enums.MovimentTypes.BL_TO_TR:
-                    result.push(new objects.EnemyMoviment(0, new objects.Vector2(-5, -4), 0));
-                    result.push(new objects.EnemyMoviment(206));
+                    result.push(new objects.EnemyMovement(0, new objects.Vector2(-5, -4), 0));
+                    result.push(new objects.EnemyMovement(206));
                     break;
             }
 

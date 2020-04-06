@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: objects/Vector2.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Class to hold coordinate/magnitude of an attribute
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var Vector2 = /** @class */ (function () {
@@ -80,7 +87,7 @@ var objects;
         });
         // PRIVATE METHODS
         Vector2.prototype._computeSqrMagnitude = function () {
-            return (this._x * this._x) + (this._y * this._y);
+            return this._x * this._x + this._y * this._y;
         };
         Vector2.prototype._computeMagnitude = function () {
             return Math.sqrt(this._computeSqrMagnitude());
@@ -143,17 +150,17 @@ var objects;
             return new Vector2(1, 0);
         };
         Vector2.dot = function (lhs, rhs) {
-            return (lhs.x * rhs.x) + (lhs.y * rhs.y);
+            return lhs.x * rhs.x + lhs.y * rhs.y;
         };
         Vector2.distance = function (P1, P2) {
             var diffXs = P2.x - P1.x;
             var diffYs = P2.y - P1.y;
-            return Math.sqrt((diffXs * diffXs) + (diffYs * diffYs));
+            return Math.sqrt(diffXs * diffXs + diffYs * diffYs);
         };
         Vector2.sqrDistance = function (P1, P2) {
             var diffXs = P2.x - P1.x;
             var diffYs = P2.y - P1.y;
-            return (diffXs * diffXs) + (diffYs * diffYs);
+            return diffXs * diffXs + diffYs * diffYs;
         };
         Vector2.add = function (lhs, rhs) {
             var theXs = lhs.x + rhs.x;

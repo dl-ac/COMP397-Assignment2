@@ -1,3 +1,10 @@
+/*
+ * File: objects/Label.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Class for displaying texts on the screen
+ *
+ * Created: 2020-04-06
+ */
 module objects {
     export class Label extends createjs.Text {
         // constructor

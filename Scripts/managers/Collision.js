@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: managers/Collision.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Calculate the collision between game objects, responds to a collison when happens.
+ *
+ * Created: 2020-04-06
+ */
 var managers;
 (function (managers) {
     var Collision = /** @class */ (function () {

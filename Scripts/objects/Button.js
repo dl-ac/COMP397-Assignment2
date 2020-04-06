@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: objects/Button.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: All the buttons from game. Fades 30% when a mouseover a button
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var Button = /** @class */ (function (_super) {
@@ -29,8 +36,7 @@ var objects;
             return _this;
         }
         // PRIVATE METHODS
-        Button.prototype._checkBounds = function () {
-        };
+        Button.prototype._checkBounds = function () { };
         // PUBLIC METHODS
         Button.prototype.MouseOver = function () {
             this.alpha = 0.7;
@@ -46,10 +52,8 @@ var objects;
         Button.prototype.Start = function () {
             this.type = enums.GameObjectType.BUTTON;
         };
-        Button.prototype.Update = function () {
-        };
-        Button.prototype.Reset = function () {
-        };
+        Button.prototype.Update = function () { };
+        Button.prototype.Reset = function () { };
         return Button;
     }(objects.GameObject));
     objects.Button = Button;

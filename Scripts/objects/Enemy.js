@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: objects/Enemy.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Controls a single enemy according to pre-defined moviments
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var Enemy = /** @class */ (function (_super) {

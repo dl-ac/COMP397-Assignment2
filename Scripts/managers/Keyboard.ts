@@ -1,28 +1,30 @@
-module managers
-{
-    export class Keyboard
-    {
+/*
+ * File: managers/Keyboard.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Manager for keyboard, control the keyboards events
+ *
+ * Created: 2020-04-06
+ */
+module managers {
+    export class Keyboard {
         // PRIVATE INSTANCE MEMBERS
 
         // PUBLIC PROPERTIES
-        public MoveUp:boolean = false;
-        public MoveDown:boolean = false;
-        public MoveLeft:boolean = false;
-        public MoveRight:boolean = false;
-        public Fire:boolean = false;
+        public MoveUp: boolean = false;
+        public MoveDown: boolean = false;
+        public MoveLeft: boolean = false;
+        public MoveRight: boolean = false;
+        public Fire: boolean = false;
 
         // CONSTRUCTOR
-        constructor()
-        {
+        constructor() {
             document.addEventListener("keydown", this._onkeyDown.bind(this), false);
             document.addEventListener("keyup", this._onKeyUp.bind(this), false);
         }
 
         // PRIVATE METHODS
-        private _onkeyDown(event: KeyboardEvent):void
-        {
-            switch(event.keyCode)
-            {
+        private _onkeyDown(event: KeyboardEvent): void {
+            switch (event.keyCode) {
                 case enums.Keys.W:
                 case enums.Keys.UP_ARROW:
                     this.MoveUp = true;
@@ -49,15 +51,13 @@ module managers
             }
         }
 
-        private _onKeyUp(event: KeyboardEvent):void
-        {
-            switch(event.keyCode)
-            {
+        private _onKeyUp(event: KeyboardEvent): void {
+            switch (event.keyCode) {
                 case enums.Keys.W:
                 case enums.Keys.UP_ARROW:
                     this.MoveUp = false;
                     break;
-                
+
                 case enums.Keys.A:
                 case enums.Keys.LEFT_ARROW:
                     this.MoveLeft = false;

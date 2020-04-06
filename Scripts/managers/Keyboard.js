@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: managers/Keyboard.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Manager for keyboard, control the keyboards events
+ *
+ * Created: 2020-04-06
+ */
 var managers;
 (function (managers) {
     var Keyboard = /** @class */ (function () {

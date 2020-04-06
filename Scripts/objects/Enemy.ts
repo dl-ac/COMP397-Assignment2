@@ -1,3 +1,10 @@
+/*
+ * File: objects/Enemy.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Controls a single enemy according to pre-defined moviments
+ *
+ * Created: 2020-04-06
+ */
 module objects {
     export class Enemy extends GameObject {
         // PRIVATE INSTANCE MEMBERS
@@ -5,8 +12,8 @@ module objects {
         private _bulletSpawn: objects.Vector2;
         private _enemyTicks: number;
         private _fireRate: number;
-        private _moviments: Array<objects.EnemyMoviment>;
-        private _currentMoviment: objects.EnemyMoviment;
+        private _moviments: Array<objects.EnemyMovement>;
+        private _currentMoviment: objects.EnemyMovement;
         private _delayStart: number;
 
         // PUBLIC PROPERTIES

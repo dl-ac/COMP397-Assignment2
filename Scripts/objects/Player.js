@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: objects/Player.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Main character functionally
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var Player = /** @class */ (function (_super) {

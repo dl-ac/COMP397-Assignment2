@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: enums/Keys.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Enumerate for Keyboard Keys
+ *
+ * Created: 2020-04-06
+ */
 var enums;
 (function (enums) {
     var Keys;

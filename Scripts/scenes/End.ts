@@ -1,3 +1,10 @@
+/*
+ * File: scenes/End.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: End scene. Triggered when the game is over
+ *
+ * Created: 2020-04-06
+ */
 module scenes {
     export class End extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS

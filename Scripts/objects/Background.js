@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: objects/Background.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Background object for the play and others scenes
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var Background = /** @class */ (function (_super) {

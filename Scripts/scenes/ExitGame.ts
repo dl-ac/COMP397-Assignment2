@@ -1,3 +1,10 @@
+/*
+ * File: scenes/ExitGame.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Exit game scene. Triggered when the player clicks the exit button
+ *
+ * Created: 2020-04-06
+ */
 module scenes {
     export class ExitGame extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS

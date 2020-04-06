@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: objects/GameObject.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Base class for all the objects from the game. Controls object position and movement
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var GameObject = /** @class */ (function (_super) {
@@ -40,7 +47,7 @@ var objects;
             if (typeof fourth == "boolean") {
                 _this.isCentered = fourth;
             }
-            if ((typeof third == "number") && (typeof fourth == "number")) {
+            if (typeof third == "number" && typeof fourth == "number") {
                 _this.position = new objects.Vector2(third, fourth, _this);
             }
             if (third instanceof objects.Vector2) {

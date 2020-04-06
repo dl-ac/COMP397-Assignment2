@@ -1,5 +1,12 @@
+/*
+ * File: objects/EnemyMovement.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: POJO class of the enemy movement
+ *
+ * Created: 2020-04-06
+ */
 module objects {
-    export class EnemyMoviment {
+    export class EnemyMovement {
         // PRIVATE INSTANCE MEMBERS
         private _tick: number;
         private _velocity: Vector2;

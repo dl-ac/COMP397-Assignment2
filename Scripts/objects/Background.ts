@@ -1,3 +1,10 @@
+/*
+ * File: objects/Background.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Background object for the play and others scenes
+ *
+ * Created: 2020-04-06
+ */
 module objects {
     export class Background extends GameObject {
         // PRIVATE INSTANCE MEMBERS

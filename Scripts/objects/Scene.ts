@@ -1,14 +1,18 @@
-module objects
-{
-    export abstract class Scene extends createjs.Container
-    {
+/*
+ * File: objects/Scene.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Container to hold a specific scene information
+ *
+ * Created: 2020-04-06
+ */
+module objects {
+    export abstract class Scene extends createjs.Container {
         // PRIVATE INSTANCE MEMBERS
 
         // PUBLIC PROPERTIS
 
         // CONSTRUCTOR
-        constructor()
-        {
+        constructor() {
             super();
         }
 
@@ -24,7 +28,7 @@ module objects
          * @abstract
          * @memberof Scene
          */
-        public abstract Start():void;
+        public abstract Start(): void;
 
         /**
          * This method is used to update all child objects in the scene
@@ -32,7 +36,7 @@ module objects
          * @abstract
          * @memberof Scene
          */
-        public abstract Update():void;
+        public abstract Update(): void;
 
         /**
          * This method is where all the work happens for the scene
@@ -40,7 +44,7 @@ module objects
          * @abstract
          * @memberof Scene
          */
-        public abstract Main():void;
+        public abstract Main(): void;
 
         /**
          * This method performs clean up functions for the scene
@@ -48,6 +52,6 @@ module objects
          * @abstract
          * @memberof Scene
          */
-        public abstract Clean():void;
+        public abstract Clean(): void;
     }
 }

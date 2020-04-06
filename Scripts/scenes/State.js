@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: scenes/scenes.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Enumerate with all the scenes available in the game
+ *
+ * Created: 2020-04-06
+ */
 var scenes;
 (function (scenes) {
     var State;

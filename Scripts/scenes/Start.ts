@@ -1,3 +1,10 @@
+/*
+ * File: scenes/Start.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Start scene. First screen to display to user, used as main menu
+ *
+ * Created: 2020-04-06
+ */
 module scenes {
     export class Start extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS

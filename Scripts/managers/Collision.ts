@@ -1,3 +1,10 @@
+/*
+ * File: managers/Collision.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Calculate the collision between game objects, responds to a collison when happens.
+ *
+ * Created: 2020-04-06
+ */
 module managers {
     export class Collision {
         public static squaredRadiusCheck(object1: objects.GameObject, object2: objects.GameObject): boolean {

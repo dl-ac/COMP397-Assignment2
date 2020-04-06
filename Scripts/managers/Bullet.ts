@@ -1,3 +1,10 @@
+/*
+ * File: managers/Bullet.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Manager for bullets, creates a pool and control the utilization during the play
+ *
+ * Created: 2020-04-06
+ */
 module managers {
     const BULLET_PLAYER_SPEED: number = 12;
 

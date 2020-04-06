@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: scenes/Start.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Start scene. First screen to display to user, used as main menu
+ *
+ * Created: 2020-04-06
+ */
 var scenes;
 (function (scenes) {
     var Start = /** @class */ (function (_super) {

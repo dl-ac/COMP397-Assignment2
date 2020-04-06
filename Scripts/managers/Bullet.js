@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: managers/Bullet.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Manager for bullets, creates a pool and control the utilization during the play
+ *
+ * Created: 2020-04-06
+ */
 var managers;
 (function (managers) {
     var BULLET_PLAYER_SPEED = 12;

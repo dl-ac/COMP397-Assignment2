@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: managers/Sound.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Manager for sound, control the sound/music on/off and play sounds during the play
+ *
+ * Created: 2020-04-06
+ */
 var managers;
 (function (managers) {
     var Sound = /** @class */ (function () {

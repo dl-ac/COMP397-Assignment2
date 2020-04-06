@@ -1,3 +1,10 @@
+/*
+ * File: config/Game.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Holds all the program global variables
+ *
+ * Created: 2020-04-06
+ */
 module config {
     export class Game {
         public static SCREEN_WIDTH: number = 1024;

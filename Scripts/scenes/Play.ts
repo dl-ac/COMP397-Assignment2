@@ -1,3 +1,10 @@
+/*
+ * File: scenes/Play.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Play scene. Triggered when the player clicks the start button on the main menu
+ *
+ * Created: 2020-04-06
+ */
 module scenes {
     export class Play extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS
@@ -31,7 +38,6 @@ module scenes {
             if (chances > 10) {
                 let crystal = this._crystalManager.GetCrystal();
                 crystal.position = position;
-                console.log("Crystal Created" + position);
             }
         }
 

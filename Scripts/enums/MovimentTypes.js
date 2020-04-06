@@ -1,4 +1,11 @@
 "use strict";
+/*
+ * File: enums/MovimentTypes.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Enumerate for Enemy Moviment Patterns
+ *
+ * Created: 2020-04-06
+ */
 var enums;
 (function (enums) {
     var MovimentTypes;

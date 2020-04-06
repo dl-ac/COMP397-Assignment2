@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+ * File: objects/Bullet.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Controls a single bullet. Reset when leaves the screen
+ *
+ * Created: 2020-04-06
+ */
 var objects;
 (function (objects) {
     var Bullet = /** @class */ (function (_super) {
@@ -40,7 +47,7 @@ var objects;
         // PUBLIC METHODS
         Bullet.prototype.Start = function () {
             this.type = enums.GameObjectType.PLAYER_BULLET;
-            this._horizontalSpeed = 12; // 12 px per frame by deftaul
+            this._horizontalSpeed = 12; // 12 px per frame by default
             this._verticalSpeed = 0; // no vertical speed by default
             this.velocity = new objects.Vector2(this._horizontalSpeed, this._verticalSpeed);
             this.Reset();

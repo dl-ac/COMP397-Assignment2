@@ -1,3 +1,10 @@
+/*
+ * File: objects/Player.ts
+ * Author: Ailton De Lima - 301018951
+ * Description: Main character functionally
+ *
+ * Created: 2020-04-06
+ */
 module objects {
     export class Player extends GameObject {
         // PRIVATE INSTANCE MEMBERS
