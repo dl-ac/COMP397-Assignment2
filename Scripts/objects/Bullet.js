@@ -25,12 +25,12 @@ var objects;
         }
         // PRIVATE METHODS
         Bullet.prototype._checkBounds = function () {
-            // check upper bounds
-            if (this.position.y <= -this.height) {
+            // check X axis
+            if (this.position.x <= -this.width || this.position.x >= config.Game.SCREEN_WIDTH + this.width) {
                 this.Reset();
             }
-            // check lower bounds
-            if (this.position.y >= config.Game.SCREEN_HEIGHT + this.height) {
+            // check Y axis
+            if (this.position.y <= -this.height || this.position.y >= config.Game.SCREEN_HEIGHT + this.height) {
                 this.Reset();
             }
         };
@@ -40,8 +40,9 @@ var objects;
         // PUBLIC METHODS
         Bullet.prototype.Start = function () {
             this.type = enums.GameObjectType.PLAYER_BULLET;
-            this._horizontalSpeed = 12; // 15 px per frame
-            this.velocity = new objects.Vector2(this._horizontalSpeed, 0);
+            this._horizontalSpeed = 12; // 12 px per frame by deftaul
+            this._verticalSpeed = 0; // no vertical speed by default
+            this.velocity = new objects.Vector2(this._horizontalSpeed, this._verticalSpeed);
             this.Reset();
         };
         Bullet.prototype.Update = function () {

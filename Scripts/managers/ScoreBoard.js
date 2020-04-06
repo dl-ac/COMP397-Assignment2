@@ -7,6 +7,7 @@ var managers;
             // Local constants
             this.START_PLAYER_LIVES = 10;
             this.START_BOSS_LIVES = 200;
+            this.START_SCORE = 0;
             this._initialize();
         }
         Object.defineProperty(ScoreBoard.prototype, "PlayerLives", {
@@ -14,9 +15,12 @@ var managers;
             get: function () {
                 return this._playerLives;
             },
-            set: function (v) {
-                this._playerLives = v;
-                config.Game.LIVES = this._playerLives;
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(ScoreBoard.prototype, "BossLives", {
+            get: function () {
+                return this._bossLives;
             },
             enumerable: true,
             configurable: true
@@ -39,7 +43,9 @@ var managers;
             this._scoreLabel = new objects.Label("999,999", "16px", "EthnocentricReg", config.Game.TEXT_COLOR, 202, 14);
             this._playerLives = this.START_PLAYER_LIVES;
             this._bossLives = this.START_BOSS_LIVES;
-            this.Score = config.Game.SCORE;
+            this.Score = this.START_SCORE;
+            // Everytime that this is class created, reset the global variables
+            config.Game.LIVES = this.PlayerLives;
             // Initialize the player health bar
             this._playerHealthTable = new objects.Image("playerHealthBar");
             this._playerHealthDots = new Array();
@@ -80,13 +86,18 @@ var managers;
             return result;
         };
         ScoreBoard.prototype.damagePlayer = function () {
-            this._playerLives--;
-            this._playerHealthDots[this._playerLives].alpha = 0;
+            if (this._playerLives > 0) {
+                this._playerLives--;
+                config.Game.LIVES = this._playerLives;
+                this._playerHealthDots[this._playerLives].alpha = 0;
+            }
         };
         ScoreBoard.prototype.damageBoss = function () {
-            this._bossLives--;
-            var pos = Math.floor(this._bossLives / 10);
-            this._bossHealthDots[pos].alpha -= 0.1;
+            if (this._bossLives > 0) {
+                this._bossLives--;
+                var pos = Math.floor(this._bossLives / 10);
+                this._bossHealthDots[pos].alpha -= 0.1;
+            }
         };
         return ScoreBoard;
     }());

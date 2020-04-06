@@ -46,7 +46,7 @@ var scenes;
             this.addChild(this._thanks);
             this.addChild(this._menuButton);
             this._menuButton.on("click", function () {
-                config.Game.SCENE = scenes.State.START;
+                config.Game.SCENE_STATE = scenes.State.START;
             });
         };
         ExitGame.prototype.Clean = function () {

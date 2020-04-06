@@ -6,6 +6,7 @@ var config;
         }
         Game.SCREEN_WIDTH = 1024;
         Game.SCREEN_HEIGHT = 576;
+        Game.GAMEBAR_HEIGHT = 36;
         Game.FPS = 60; // 60 Frames per second
         Game.CLOUD_NUM = 4;
         Game.LIVES = 5;

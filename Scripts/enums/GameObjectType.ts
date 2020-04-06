@@ -1,6 +1,9 @@
 module enums {
     export enum GameObjectType {
-        ISLAND,
+        BOSS,
+        ENEMY,
+        ENEMY_BULLET,
+        CRYSTAL,
         CLOUD,
         BACKGROUND,
         BUTTON,

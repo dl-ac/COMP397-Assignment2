@@ -1,10 +1,15 @@
 module managers {
+    const BULLET_PLAYER_SPEED: number = 12;
+
     export class Bullet {
         // PRIVATE INSTANCE MEMBERS
         private _bulletNumber: number;
         private _bulletPool: Array<objects.Bullet>;
 
         // PUBLIC PROPERTIES
+        public get Bullets(): Array<objects.Bullet> {
+            return this._bulletPool;
+        }
 
         // CONSTRUCTOR
         constructor() {
@@ -25,17 +30,14 @@ module managers {
             }
         }
 
-        // PUBLIC METHODS
-
-        public AddBulletsToScene(scene: objects.Scene) {
-            this._bulletPool.forEach(bullet => {
-                scene.addChild(bullet);
-            });
-        }
-
-        public GetBullet(): objects.Bullet {
+        private _getBullet(spriteName: string, type: enums.GameObjectType, velocity: objects.Vector2): objects.Bullet {
             // remove the bullet from the front of the pool
             let bullet = this._bulletPool.shift();
+
+            // Define the default values for the player bullet
+            bullet.gotoAndPlay(spriteName);
+            bullet.type = type;
+            bullet.velocity = velocity;
 
             bullet.isActive = true;
 
@@ -44,6 +46,25 @@ module managers {
 
             // return a reference to the active bullet
             return bullet;
+        }
+
+        // PUBLIC METHODS
+        public AddBulletsToScene(scene: objects.Scene) {
+            this._bulletPool.forEach(bullet => {
+                scene.addChild(bullet);
+            });
+        }
+
+        public GetPlayerBullet(): objects.Bullet {
+            return this._getBullet(
+                "playerBullet",
+                enums.GameObjectType.PLAYER_BULLET,
+                new objects.Vector2(BULLET_PLAYER_SPEED, 0)
+            );
+        }
+
+        public GetEnemyBullet(spriteName: string, speedX: number, speedY: number): objects.Bullet {
+            return this._getBullet(spriteName, enums.GameObjectType.ENEMY_BULLET, new objects.Vector2(speedX, speedY));
         }
 
         public Update() {

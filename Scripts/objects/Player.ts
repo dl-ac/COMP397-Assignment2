@@ -92,7 +92,7 @@ module objects {
         public Reset(): void {}
 
         public FireBullets(): void {
-            let bullet = config.Game.BULLET_MANAGER.GetBullet();
+            let bullet = config.Game.BULLET_MANAGER.GetPlayerBullet();
             bullet.position = this._bulletSpawn;
         }
     }

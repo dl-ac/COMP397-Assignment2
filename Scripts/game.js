@@ -125,15 +125,33 @@ var Game = (function () {
         animations: {
             bossAttack1: {
                 frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                next: "bossFlight",
                 speed: 0.2
             },
             bossAttack2: {
                 frames: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+                next: "bossFlight",
                 speed: 0.2
+            },
+            bossAttack2Begin: {
+                frames: [10, 11, 12, 13],
+                next: "bossAttack2Mid",
+                speed: 0.25
+            },
+            bossAttack2Mid: {
+                frames: [14, 14, 15, 15],
+                next: "bossAttack2End",
+                speed: 0.5
+            },
+            bossAttack2End: {
+                frames: [16, 17, 18, 19],
+                next: "bossFlight",
+                speed: 0.25
             },
             bossBullet: { frames: [20] },
             bossDeath: {
                 frames: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+                next: 30,
                 speed: 0.5
             },
             bossFlight: {
@@ -211,7 +229,7 @@ var Game = (function () {
         backgroundAtlas = new createjs.SpriteSheet(backgroundData);
         config.Game.BACKGROUND_ATLAS = backgroundAtlas;
         currentSceneState = scenes.State.NO_SCENE;
-        config.Game.SCENE = scenes.State.START;
+        config.Game.SCENE_STATE = scenes.State.START;
         buttonMusic = new objects.Button("buttonMusicOn", config.Game.SCREEN_WIDTH - 55, 20, true);
         buttonSound = new objects.Button("buttonSoundOn", config.Game.SCREEN_WIDTH - 20, 20, true);
         config.Game.GAME_MUSIC = true;
@@ -230,7 +248,7 @@ var Game = (function () {
      * The stage is then erased and redrawn
      */
     function Update() {
-        if (currentSceneState != config.Game.SCENE) {
+        if (currentSceneState != config.Game.SCENE_STATE) {
             Main();
         }
         currentScene.Update();
@@ -248,7 +266,7 @@ var Game = (function () {
             stage.removeAllChildren();
         }
         // switch to the new scene
-        switch (config.Game.SCENE) {
+        switch (config.Game.SCENE_STATE) {
             case scenes.State.START:
                 console.log("switch to Start Scene");
                 currentScene = new scenes.Start();
@@ -270,7 +288,7 @@ var Game = (function () {
                 currentScene = new scenes.ExitGame();
                 break;
         }
-        currentSceneState = config.Game.SCENE;
+        currentSceneState = config.Game.SCENE_STATE;
         stage.addChild(currentScene);
         currentScene.addChild(buttonMusic);
         currentScene.addChild(buttonSound);

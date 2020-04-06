@@ -14,41 +14,41 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Island = /** @class */ (function (_super) {
-        __extends(Island, _super);
+    var Crystal = /** @class */ (function (_super) {
+        __extends(Crystal, _super);
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
-        function Island() {
-            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "island", new objects.Vector2(), true) || this;
+        function Crystal() {
+            var _this = _super.call(this, config.Game.TEXTURE_ATLAS, "placeholder", new objects.Vector2(), true) || this;
             _this.Start();
             return _this;
         }
         // PRIVATE METHODS
-        Island.prototype._checkBounds = function () {
+        Crystal.prototype._checkBounds = function () {
             if (this.y >= config.Game.SCREEN_HEIGHT + this.height) {
                 this.Reset();
             }
         };
-        Island.prototype._move = function () {
+        Crystal.prototype._move = function () {
             this.position = objects.Vector2.add(this.position, this.velocity);
         };
         // PUBLIC METHODS
-        Island.prototype.Start = function () {
-            this.type = enums.GameObjectType.ISLAND;
-            this._verticalSpeed = 5; // 5 px per frame
-            this.velocity = new objects.Vector2(0, this._verticalSpeed);
+        Crystal.prototype.Start = function () {
+            this.type = enums.GameObjectType.CRYSTAL;
+            this._horizontalSpeed = 5; // 5 px per frame
+            this.velocity = new objects.Vector2(this._horizontalSpeed, 0);
             this.Reset();
         };
-        Island.prototype.Update = function () {
+        Crystal.prototype.Update = function () {
             this._move();
             this._checkBounds();
         };
-        Island.prototype.Reset = function () {
+        Crystal.prototype.Reset = function () {
             var randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
             this.position = new objects.Vector2(randomX, -this.height);
         };
-        return Island;
+        return Crystal;
     }(objects.GameObject));
-    objects.Island = Island;
+    objects.Crystal = Crystal;
 })(objects || (objects = {}));
-//# sourceMappingURL=Island.js.map
+//# sourceMappingURL=Crystal.js.map

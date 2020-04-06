@@ -3,6 +3,7 @@ module managers {
         // Local constants
         private START_PLAYER_LIVES = 10;
         private START_BOSS_LIVES: number = 200;
+        private START_SCORE = 0;
 
         // private  instance members
         private _playerLives: number;
@@ -21,9 +22,8 @@ module managers {
             return this._playerLives;
         }
 
-        public set PlayerLives(v: number) {
-            this._playerLives = v;
-            config.Game.LIVES = this._playerLives;
+        public get BossLives(): number {
+            return this._bossLives;
         }
 
         public get Score(): number {
@@ -48,7 +48,10 @@ module managers {
 
             this._playerLives = this.START_PLAYER_LIVES;
             this._bossLives = this.START_BOSS_LIVES;
-            this.Score = config.Game.SCORE;
+            this.Score = this.START_SCORE;
+
+            // Everytime that this is class created, reset the global variables
+            config.Game.LIVES = this.PlayerLives;
 
             // Initialize the player health bar
             this._playerHealthTable = new objects.Image("playerHealthBar");
@@ -107,15 +110,21 @@ module managers {
         }
 
         public damagePlayer(): void {
-            this._playerLives--;
-            this._playerHealthDots[this._playerLives].alpha = 0;
+            if (this._playerLives > 0) {
+                this._playerLives--;
+                config.Game.LIVES = this._playerLives;
+
+                this._playerHealthDots[this._playerLives].alpha = 0;
+            }
         }
 
         public damageBoss(): void {
-            this._bossLives--;
+            if (this._bossLives > 0) {
+                this._bossLives--;
 
-            let pos = Math.floor(this._bossLives / 10);
-            this._bossHealthDots[pos].alpha -= 0.1;
+                let pos = Math.floor(this._bossLives / 10);
+                this._bossHealthDots[pos].alpha -= 0.1;
+            }
         }
     }
 }

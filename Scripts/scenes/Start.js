@@ -48,13 +48,13 @@ var scenes;
             this.addChild(this._exitButton);
             this.addChild(this._infoButton);
             this._startButton.on("click", function () {
-                config.Game.SCENE = scenes.State.PLAY;
+                config.Game.SCENE_STATE = scenes.State.PLAY;
             });
             this._exitButton.on("click", function () {
-                config.Game.SCENE = scenes.State.EXIT;
+                config.Game.SCENE_STATE = scenes.State.EXIT;
             });
             this._infoButton.on("click", function () {
-                config.Game.SCENE = scenes.State.INFO;
+                config.Game.SCENE_STATE = scenes.State.INFO;
             });
         };
         Start.prototype.Clean = function () {

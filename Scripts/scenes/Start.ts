@@ -67,15 +67,15 @@ module scenes {
             this.addChild(this._infoButton);
 
             this._startButton.on("click", () => {
-                config.Game.SCENE = scenes.State.PLAY;
+                config.Game.SCENE_STATE = scenes.State.PLAY;
             });
 
             this._exitButton.on("click", () => {
-                config.Game.SCENE = scenes.State.EXIT;
+                config.Game.SCENE_STATE = scenes.State.EXIT;
             });
 
             this._infoButton.on("click", () => {
-                config.Game.SCENE = scenes.State.INFO;
+                config.Game.SCENE_STATE = scenes.State.INFO;
             });
         }
 

@@ -95,7 +95,7 @@ var objects;
         };
         Player.prototype.Reset = function () { };
         Player.prototype.FireBullets = function () {
-            var bullet = config.Game.BULLET_MANAGER.GetBullet();
+            var bullet = config.Game.BULLET_MANAGER.GetPlayerBullet();
             bullet.position = this._bulletSpawn;
         };
         return Player;

@@ -72,7 +72,7 @@ module scenes {
             this.addChild(this._menuButton);
 
             this._menuButton.on("click", () => {
-                config.Game.SCENE = scenes.State.START;
+                config.Game.SCENE_STATE = scenes.State.START;
             });
         }
 

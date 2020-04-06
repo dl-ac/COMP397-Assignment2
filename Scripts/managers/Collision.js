@@ -54,28 +54,40 @@ var managers;
          */
         Collision._collisionResponse = function (object2) {
             switch (object2.type) {
-                case enums.GameObjectType.ISLAND:
-                    {
-                        console.log("Collision with Island!");
-                        var yaySound = createjs.Sound.play("yay");
-                        yaySound.volume = 0.2;
-                        config.Game.SCORE_BOARD.Score += 100;
-                        if (config.Game.SCORE > config.Game.HIGH_SCORE) {
-                            config.Game.HIGH_SCORE = config.Game.SCORE;
-                        }
+                // Player colliding with a Crystal
+                case enums.GameObjectType.CRYSTAL:
+                    console.log("Caught a crystal!");
+                    var yaySound = createjs.Sound.play("yay");
+                    yaySound.volume = 0.2;
+                    config.Game.SCORE_BOARD.Score += config.Game.SCORE_CRYSTAL_VALUE;
+                    if (config.Game.SCORE > config.Game.HIGH_SCORE) {
+                        config.Game.HIGH_SCORE = config.Game.SCORE;
                     }
                     break;
-                case enums.GameObjectType.CLOUD:
-                    {
-                        console.log("Collision with Cloud!");
-                        var thunderSound = createjs.Sound.play("thunder");
-                        thunderSound.volume = 0.2;
-                        config.Game.SCORE_BOARD.PlayerLives -= 1;
-                        // check if lives falls less than 1 and then switch to END scene
-                        if (config.Game.LIVES < 1) {
-                            config.Game.SCENE = scenes.State.END;
-                        }
+                // Bullet or enemy colliding with a player
+                case enums.GameObjectType.PLAYER:
+                    console.log("Player collision with something (bullet or enemy)!");
+                    var thunderSound = createjs.Sound.play("thunder");
+                    thunderSound.volume = 0.2;
+                    config.Game.SCORE_BOARD.damagePlayer();
+                    // Check for the player lives
+                    if (config.Game.SCORE_BOARD.PlayerLives <= 0) {
+                        config.Game.SCENE_STATE = scenes.State.END;
                     }
+                    break;
+                // Player bullet colliding with a boss
+                case enums.GameObjectType.BOSS:
+                    console.log("Boss collision with a player bullet");
+                    config.Game.SCORE_BOARD.damageBoss();
+                    // Check for the boss lives
+                    if (config.Game.SCORE_BOARD.BossLives <= 0) {
+                        config.Game.SCENE_STATE = scenes.State.END;
+                    }
+                    break;
+                // Player bullet colliding with a enemy
+                case enums.GameObjectType.ENEMY:
+                    console.log("Enemy collision with a player bullet");
+                    var enemy = object2;
                     break;
             }
         };
