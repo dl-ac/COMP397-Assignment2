@@ -63,33 +63,27 @@ module managers {
             switch (object2.type) {
                 // Player colliding with a Crystal
                 case enums.GameObjectType.CRYSTAL:
-                    console.log("Caught a crystal!");
                     let yaySound = createjs.Sound.play("yay");
                     yaySound.volume = 0.2;
-                    config.Game.SCORE_BOARD.Score += config.Game.SCORE_CRYSTAL_VALUE;
-
-                    if (config.Game.SCORE > config.Game.HIGH_SCORE) {
-                        config.Game.HIGH_SCORE = config.Game.SCORE;
-                    }
+                    config.Game.SCORE_BOARD.AddScore(config.Game.SCORE_CRYSTAL_VALUE);
                     break;
 
                 // Bullet or enemy colliding with a player
                 case enums.GameObjectType.PLAYER:
-                    console.log("Player collision with something (bullet or enemy)!");
                     let thunderSound = createjs.Sound.play("thunder");
                     thunderSound.volume = 0.2;
-                    config.Game.SCORE_BOARD.damagePlayer();
+                    config.Game.SCORE_BOARD.DamagePlayer();
 
                     // Check for the player lives
                     if (config.Game.SCORE_BOARD.PlayerLives <= 0) {
+                        config.Game.SCORE_BOARD.AddScore(config.Game.SCORE_BOSS_VALUE);
                         config.Game.SCENE_STATE = scenes.State.END;
                     }
                     break;
 
                 // Player bullet colliding with a boss
                 case enums.GameObjectType.BOSS:
-                    console.log("Boss collision with a player bullet");
-                    config.Game.SCORE_BOARD.damageBoss();
+                    config.Game.SCORE_BOARD.DamageBoss();
 
                     // Check for the boss lives
                     if (config.Game.SCORE_BOARD.BossLives <= 0) {
@@ -99,8 +93,8 @@ module managers {
 
                 // Player bullet colliding with a enemy
                 case enums.GameObjectType.ENEMY:
-                    console.log("Enemy collision with a player bullet");
-                    let enemy = object2 as objects.Enemy;
+                    object2.Reset();
+                    config.Game.SCORE_BOARD.AddScore(config.Game.SCORE_ENEMY_VALUE);
                     break;
             }
         }

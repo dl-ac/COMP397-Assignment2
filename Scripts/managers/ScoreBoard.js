@@ -29,21 +29,16 @@ var managers;
             get: function () {
                 return this._score;
             },
-            set: function (v) {
-                this._score = v;
-                config.Game.SCORE = this._score;
-                this._scoreLabel.text = this._score.toLocaleString("en-US", { maximumFractionDigits: 0 });
-            },
             enumerable: true,
             configurable: true
         });
         // private methods
         ScoreBoard.prototype._initialize = function () {
             // Create the labels first
-            this._scoreLabel = new objects.Label("999,999", "16px", "EthnocentricReg", config.Game.TEXT_COLOR, 202, 14);
+            this._scoreLabel = new objects.Label("0", "16px", "EthnocentricReg", config.Game.TEXT_COLOR, 202, 14);
             this._playerLives = this.START_PLAYER_LIVES;
             this._bossLives = this.START_BOSS_LIVES;
-            this.Score = this.START_SCORE;
+            this._score = this.START_SCORE;
             // Everytime that this is class created, reset the global variables
             config.Game.LIVES = this.PlayerLives;
             // Initialize the player health bar
@@ -72,31 +67,39 @@ var managers;
             this._bossHealthDots[this._bossHealthDots.length] = new objects.Image("bossHealthDotRight", curPosX, 14, false);
         };
         // Public methods
-        ScoreBoard.prototype.getPlayGameObjects = function () {
+        ScoreBoard.prototype.GetPlayGameObjects = function () {
             var result = new Array();
             result.push(this._playerHealthTable);
             this._playerHealthDots.forEach(function (o) { return result.push(o); });
             result.push(this._scoreLabel);
             return result;
         };
-        ScoreBoard.prototype.getBossGameObjects = function () {
+        ScoreBoard.prototype.GetBossGameObjects = function () {
             var result = new Array();
             result.push(this._bossHealthTable);
             this._bossHealthDots.forEach(function (o) { return result.push(o); });
             return result;
         };
-        ScoreBoard.prototype.damagePlayer = function () {
+        ScoreBoard.prototype.DamagePlayer = function () {
             if (this._playerLives > 0) {
                 this._playerLives--;
                 config.Game.LIVES = this._playerLives;
                 this._playerHealthDots[this._playerLives].alpha = 0;
             }
         };
-        ScoreBoard.prototype.damageBoss = function () {
+        ScoreBoard.prototype.DamageBoss = function () {
             if (this._bossLives > 0) {
                 this._bossLives--;
                 var pos = Math.floor(this._bossLives / 10);
                 this._bossHealthDots[pos].alpha -= 0.1;
+            }
+        };
+        ScoreBoard.prototype.AddScore = function (value) {
+            this._score += value;
+            config.Game.SCORE = this._score;
+            this._scoreLabel.text = this._score.toLocaleString("en-US", { maximumFractionDigits: 0 });
+            if (config.Game.HIGH_SCORE < value) {
+                config.Game.HIGH_SCORE = value;
             }
         };
         return ScoreBoard;

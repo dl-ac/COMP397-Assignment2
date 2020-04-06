@@ -13,6 +13,10 @@ var config;
         Game.SCORE = 0;
         Game.HIGH_SCORE = 0;
         Game.TEXT_COLOR = "#e3f5f4";
+        // Score values
+        Game.SCORE_ENEMY_VALUE = 10;
+        Game.SCORE_CRYSTAL_VALUE = 50;
+        Game.SCORE_BOSS_VALUE = 500;
         return Game;
     }());
     config.Game = Game;

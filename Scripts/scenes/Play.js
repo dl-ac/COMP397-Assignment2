@@ -36,56 +36,90 @@ var scenes;
             config.Game.BULLET_MANAGER = this._bulletManager;
             this._keyboardManager = new managers.Keyboard();
             config.Game.KEYBOARD_MANAGER = this._keyboardManager;
+            this._enemyManager = new managers.Enemy();
+            config.Game.ENEMY_MANAGER = this._enemyManager;
             // Get a random boss apperence
             this._bossAppear = util.Mathf.RandomRangeInt(-280, -360);
+            // Set the last tick to 0 and the next enemies timer
+            this._lastEnemiesTick = 0;
+            this._nextEnemies = 6 * config.Game.FPS;
+            // Create the initial enemies
+            this._enemyManager.CreateEnemies();
             this.Main();
         };
         Play.prototype.Update = function () {
             var _this = this;
-            if (!this._finalAnimation) {
-                // Screen objects updates
-                this._background.Update();
-                this._player.Update();
-                // Verify if it is time to activate the boss
-                if (!this._boss.isActive) {
-                    if (this._background.position.x <= this._bossAppear) {
-                        this._boss.MakeActive();
-                        this._scoreBoard.getBossGameObjects().forEach(function (go) { return _this.addChild(go); });
+            // Screen objects updates
+            this._background.Update();
+            this._player.Update();
+            // Verify if it is time to activate the boss
+            if (!this._boss.isActive) {
+                if (this._background.position.x <= this._bossAppear) {
+                    this._boss.MakeActive();
+                    this._scoreBoard.GetBossGameObjects().forEach(function (go) { return _this.addChild(go); });
+                }
+            }
+            else {
+                this._boss.Update();
+            }
+            // Manage the bullets
+            this._bulletManager.Update();
+            // Manage the enemies
+            this._enemyManager.Update();
+            // Check the player with the enemies, store actives to check later with the bullets
+            var activeEnemies = new Array();
+            this._enemyManager.Enemies.forEach(function (enemy) {
+                if (enemy.isActive) {
+                    if (managers.Collision.squaredRadiusCheck(enemy, _this._player)) {
+                        enemy.Reset();
+                    }
+                    activeEnemies.push(enemy);
+                }
+            });
+            // Check for bullets collision
+            this._bulletManager.Bullets.forEach(function (bullet) {
+                if (bullet.isActive) {
+                    if (bullet.type == enums.GameObjectType.PLAYER_BULLET) {
+                        // Check the player bullet against the boss, if got it, reset it
+                        if (managers.Collision.squaredRadiusCheck(bullet, _this._boss)) {
+                            bullet.Reset();
+                        }
+                        else {
+                            // Check the player bullet against each enemy in screen
+                            activeEnemies.forEach(function (enemy) {
+                                if (managers.Collision.squaredRadiusCheck(bullet, enemy)) {
+                                    enemy.Reset();
+                                    bullet.Reset();
+                                }
+                            });
+                        }
+                    }
+                    else if (bullet.type == enums.GameObjectType.ENEMY_BULLET) {
+                        if (managers.Collision.squaredRadiusCheck(bullet, _this._player)) {
+                            bullet.Reset();
+                        }
                     }
                 }
-                else {
-                    this._boss.Update();
+            });
+            // Check for enemies creation
+            var currentTick = createjs.Ticker.getTicks();
+            if (currentTick - this._lastEnemiesTick >= this._nextEnemies) {
+                this._enemyManager.CreateEnemies();
+                this._lastEnemiesTick = currentTick;
+                // Reduce the time between enemies by 5 FPS until 180 FPS
+                if (this._nextEnemies > 180) {
+                    this._nextEnemies -= 5;
                 }
-                // Manage the bullets
-                this._bulletManager.Update();
-                // Check for bullets collision
-                this._bulletManager.Bullets.forEach(function (bullet) {
-                    if (bullet.isActive) {
-                        if (bullet.type == enums.GameObjectType.PLAYER_BULLET) {
-                            // Check the player bullet against the boss, if got it, reset it
-                            if (managers.Collision.squaredRadiusCheck(bullet, _this._boss)) {
-                                bullet.Reset();
-                            }
-                            else {
-                                // Check the player bullet against each enemy in screen
-                            }
-                        }
-                        else if (bullet.type == enums.GameObjectType.ENEMY_BULLET) {
-                            if (managers.Collision.squaredRadiusCheck(bullet, _this._player)) {
-                                bullet.Reset();
-                            }
-                        }
-                    }
-                });
             }
         };
         Play.prototype.Main = function () {
             var _this = this;
             this.addChild(this._background);
             this.addChild(this._player);
+            this._enemyManager.AddEnemiesToScene(this);
             this._bulletManager.AddBulletsToScene(this);
             this.addChild(this._boss);
-            this._scoreBoard.getPlayGameObjects().forEach(function (go) { return _this.addChild(go); });
+            this._scoreBoard.GetPlayGameObjects().forEach(function (go) { return _this.addChild(go); });
         };
         Play.prototype.Clean = function () {
             this.removeAllChildren();

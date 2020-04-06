@@ -30,12 +30,6 @@ module managers {
             return this._score;
         }
 
-        public set Score(v: number) {
-            this._score = v;
-            config.Game.SCORE = this._score;
-            this._scoreLabel.text = this._score.toLocaleString("en-US", { maximumFractionDigits: 0 });
-        }
-
         // constructor
         constructor() {
             this._initialize();
@@ -44,11 +38,11 @@ module managers {
         // private methods
         private _initialize(): void {
             // Create the labels first
-            this._scoreLabel = new objects.Label("999,999", "16px", "EthnocentricReg", config.Game.TEXT_COLOR, 202, 14);
+            this._scoreLabel = new objects.Label("0", "16px", "EthnocentricReg", config.Game.TEXT_COLOR, 202, 14);
 
             this._playerLives = this.START_PLAYER_LIVES;
             this._bossLives = this.START_BOSS_LIVES;
-            this.Score = this.START_SCORE;
+            this._score = this.START_SCORE;
 
             // Everytime that this is class created, reset the global variables
             config.Game.LIVES = this.PlayerLives;
@@ -89,7 +83,7 @@ module managers {
         }
 
         // Public methods
-        public getPlayGameObjects(): Array<createjs.DisplayObject> {
+        public GetPlayGameObjects(): Array<createjs.DisplayObject> {
             let result = new Array<createjs.DisplayObject>();
 
             result.push(this._playerHealthTable);
@@ -100,7 +94,7 @@ module managers {
             return result;
         }
 
-        public getBossGameObjects(): Array<createjs.DisplayObject> {
+        public GetBossGameObjects(): Array<createjs.DisplayObject> {
             let result = new Array<createjs.DisplayObject>();
 
             result.push(this._bossHealthTable);
@@ -109,7 +103,7 @@ module managers {
             return result;
         }
 
-        public damagePlayer(): void {
+        public DamagePlayer(): void {
             if (this._playerLives > 0) {
                 this._playerLives--;
                 config.Game.LIVES = this._playerLives;
@@ -118,12 +112,22 @@ module managers {
             }
         }
 
-        public damageBoss(): void {
+        public DamageBoss(): void {
             if (this._bossLives > 0) {
                 this._bossLives--;
 
                 let pos = Math.floor(this._bossLives / 10);
                 this._bossHealthDots[pos].alpha -= 0.1;
+            }
+        }
+
+        public AddScore(value: number) {
+            this._score += value;
+            config.Game.SCORE = this._score;
+
+            this._scoreLabel.text = this._score.toLocaleString("en-US", { maximumFractionDigits: 0 });
+            if (config.Game.HIGH_SCORE < value) {
+                config.Game.HIGH_SCORE = value;
             }
         }
     }
